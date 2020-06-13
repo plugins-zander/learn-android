@@ -1,0 +1,750 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Activity和Fragment · learn-android</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="Zander Zhao">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ZanderZhao/cdn/css/gitalk.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-page-toc/page-toc.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="1008.html" />
+    
+    
+    <link rel="prev" href="1006.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    本书简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="1001.html">
+            
+                <a href="1001.html">
+            
+                    
+                    简介
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="1004.html">
+            
+                <a href="1004.html">
+            
+                    
+                    配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="1002.html">
+            
+                <a href="1002.html">
+            
+                    
+                    应用结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="1005.html">
+            
+                <a href="1005.html">
+            
+                    
+                    界面
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="1006.html">
+            
+                <a href="1006.html">
+            
+                    
+                    (基本)组件
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.4.1" data-path="1007.html">
+            
+                <a href="1007.html">
+            
+                    
+                    Activity和Fragment
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="1008.html">
+            
+                <a href="1008.html">
+            
+                    
+                    Service
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="1009.html">
+            
+                <a href="1009.html">
+            
+                    
+                    BroadcastReceiver
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="1010.html">
+            
+                <a href="1010.html">
+            
+                    
+                    ContentProvider
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="1011.html">
+            
+                <a href="1011.html">
+            
+                    
+                    *Intent和IntentFilter
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="1012.html">
+            
+                <a href="1012.html">
+            
+                    
+                    事件处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="1014.html">
+            
+                <a href="1014.html">
+            
+                    
+                    资源处理
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="1015.html">
+            
+                <a href="1015.html">
+            
+                    
+                    应用资源
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="1013.html">
+            
+                <a href="1013.html">
+            
+                    
+                    图形图像
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="1016.html">
+            
+                <a href="1016.html">
+            
+                    
+                    文件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="1017.html">
+            
+                <a href="1017.html">
+            
+                    
+                    数据库
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="1020.html">
+            
+                <a href="1020.html">
+            
+                    
+                    其他
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="1018.html">
+            
+                <a href="1018.html">
+            
+                    
+                    网络应用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="1019.html">
+            
+                <a href="1019.html">
+            
+                    
+                    多媒体应用
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Activity和Fragment</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="activity&#x548C;fragment">Activity&#x548C;Fragment</h1>
+<h2 id="activity&#x7684;&#x5EFA;&#x7ACB;&#x4E0E;&#x4F7F;&#x7528;">Activity&#x7684;&#x5EFA;&#x7ACB;&#x4E0E;&#x4F7F;&#x7528;</h2>
+<h3 id="activity&#x4ECB;&#x7ECD;">Activity&#x4ECB;&#x7ECD;</h3>
+<ul>
+<li>Activity&#x76F4;&#x63A5;&#x6216;&#x95F4;&#x63A5;&#x7EE7;&#x627F;&#x4E86;Context&#x3001;ContextWrapper&#x3001;ContextThemeWrapper&#x7B49;&#x57FA;&#x7C7B;&#x3002;</li>
+<li>&#x5728;&#x4F7F;&#x7528;Activity&#x65F6;&#xFF0C;&#x9700;&#x8981;&#x5F00;&#x53D1;&#x8005;&#x7EE7;&#x627F;Activity&#x57FA;&#x7C7B;&#x3002;&#x5728;&#x4E0D;&#x540C;&#x7684;&#x5E94;&#x7528;&#x573A;&#x666F;&#x4E0B;&#xFF0C;&#x53EF;&#x4EE5;&#x9009;&#x62E9;&#x7EE7;&#x627F;Activity&#x7684;&#x5B50;&#x7C7B;&#x3002;<ul>
+<li>&#x4F8B;&#x5982;&#x754C;&#x9762;&#x4E2D;&#x53EA;&#x5305;&#x62EC;&#x5217;&#x8868;&#xFF0C;&#x5219;&#x53EF;&#x4EE5;&#x7EE7;&#x627F;ListActivity&#xFF1B;&#x82E5;&#x754C;&#x9762;&#x9700;&#x8981;&#x5B9E;&#x73B0;&#x6807;&#x7B7E;&#x9875;&#x6548;&#x679C;&#xFF0C;&#x5219;&#x8981;&#x7EE7;&#x627F;TabActivity&#x3002;</li>
+</ul>
+</li>
+<li>&#x5F53;&#x4E00;&#x4E2A;Activity&#x7C7B;&#x88AB;&#x5B9A;&#x4E49;&#x4E4B;&#x540E;&#xFF0C;&#x8FD9;&#x4E2A;Activity&#x7C7B;&#x4F55;&#x65F6;&#x88AB;&#x5B9E;&#x4F8B;&#x5316;&#xFF0C;&#x5B83;&#x6240;&#x5305;&#x542B;&#x7684;&#x65B9;&#x6CD5;&#x4F55;&#x65F6;&#x88AB;&#x8C03;&#x7528;&#xFF0C;&#x90FD;&#x662F;&#x7531;Android&#x7CFB;&#x7EDF;&#x51B3;&#x5B9A;&#x7684;&#x3002;&#x5F00;&#x53D1;&#x8005;&#x53EA;&#x8D1F;&#x8D23;&#x5B9E;&#x73B0;&#x76F8;&#x5E94;&#x7684;&#x65B9;&#x6CD5;&#x521B;&#x5EFA;&#x51FA;&#x9700;&#x8981;&#x7684;Activity&#x5373;&#x53EF;&#x3002;</li>
+<li>&#x521B;&#x5EFA;&#x4E00;&#x4E2A;Activity&#x9700;&#x8981;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;&#x6216;&#x591A;&#x4E2A;&#x65B9;&#x6CD5;&#xFF0C;&#x5176;&#x4E2D;&#x6700;&#x57FA;&#x672C;&#x7684;&#x65B9;&#x6CD5;&#x662F;onCreate(Bundle status)&#x65B9;&#x6CD5;&#xFF0C;&#x5B83;&#x5C06;&#x4F1A;&#x5728;Activity&#x88AB;&#x521B;&#x5EFA;&#x65F6;&#x56DE;&#x8C03;&#xFF0C;&#x7136;&#x540E;&#x901A;&#x8FC7;setContentView(View view)&#x65B9;&#x6CD5;&#x663E;&#x793A;&#x8981;&#x5C55;&#x793A;&#x7684;&#x5E03;&#x5C40;&#x6587;&#x4EF6;&#x3002;</li>
+</ul>
+<h3 id="&#x914D;&#x7F6E;activity">&#x914D;&#x7F6E;Activity</h3>
+<ul>
+<li>Activity&#x5FC5;&#x987B;&#x5728;AndroidManifest.xml&#x6E05;&#x5355;&#x6587;&#x4EF6;&#x4E2D;&#x914D;&#x7F6E;&#x624D;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#xFF0C;&#x800C;&#x5728;Android Studio&#x4E2D;&#x662F;&#x81EA;&#x52A8;&#x914D;&#x7F6E;&#x5B8C;&#x6210;&#xFF0C;&#x4F46;&#x662F;&#x6709;&#x65F6;&#x81EA;&#x52A8;&#x914D;&#x7F6E;&#x5B8C;&#x6210;&#x7684;&#x5C5E;&#x6027;&#x5E76;&#x4E0D;&#x80FD;&#x6EE1;&#x8DB3;&#x9700;&#x6C42;&#x3002;&#x914D;&#x7F6E;Activity&#x65F6;&#x5E38;&#x7528;&#x7684;&#x5C5E;&#x6027;&#x5982;&#x8868;&#x6240;&#x793A;&#x3002;</li>
+</ul>
+<p><img src="https://img1.zlogs.net/20/20200507160936.png" alt=""></p>
+<ul>
+<li>&#x9664;&#x4E86;&#x4E0A;&#x9762;&#x51E0;&#x4E2A;&#x5C5E;&#x6027;&#x4E4B;&#x5916;&#xFF0C;Activity&#x4E2D;&#x8FD8;&#x53EF;&#x4EE5;&#x8BBE;&#x7F6E;&#x4E00;&#x4E2A;&#x6216;&#x591A;&#x4E2A;<code>&lt;intent-filter&#x2026;/&gt;</code>&#x5143;&#x7D20;&#xFF0C;&#x8BE5;&#x5143;&#x7D20;&#x7528;&#x4E8E;&#x6307;&#x5B9A;&#x8BE5;Activity&#x53EF;&#x54CD;&#x5E94;&#x7684;Intent&#x3002;</li>
+</ul>
+<h3 id="activity&#x7684;&#x542F;&#x52A8;&#x4E0E;&#x5173;&#x95ED;">Activity&#x7684;&#x542F;&#x52A8;&#x4E0E;&#x5173;&#x95ED;</h3>
+<ul>
+<li>&#x5728;&#x4E00;&#x4E2A;Android&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x4E2D;&#x901A;&#x5E38;&#x4F1A;&#x6709;&#x591A;&#x4E2A;Activity&#xFF0C;&#x6BCF;&#x4E2A;Activity&#x90FD;&#x662F;&#x53EF;&#x4EE5;&#x88AB;&#x5176;&#x4ED6;Activity&#x542F;&#x52A8;&#x7684;&#xFF0C;&#x4F46;&#x7A0B;&#x5E8F;&#x53EA;&#x6709;&#x4E00;&#x4E2A;Activity&#x4F5C;&#x4E3A;&#x5165;&#x53E3;&#xFF0C;&#x5373;&#x7A0B;&#x5E8F;&#x542F;&#x52A8;&#x65F6;&#x53EA;&#x4F1A;&#x542F;&#x52A8;&#x4F5C;&#x4E3A;&#x5165;&#x53E3;&#x7684;Activity&#xFF0C;&#x5176;&#x4ED6;Activity&#x4F1A;&#x88AB;&#x5DF2;&#x7ECF;&#x542F;&#x52A8;&#x7684;&#x5176;&#x4ED6;Activity&#x542F;&#x52A8;&#x3002;</li>
+<li><p>Activity&#x88AB;&#x542F;&#x52A8;&#x7684;&#x65B9;&#x5F0F;&#x6709;&#x4EE5;&#x4E0B;&#x4E24;&#x79CD;&#xFF1A;</p>
+<ul>
+<li>startActivity(Intent intent)&#xFF1A;&#x542F;&#x52A8;&#x5176;&#x4ED6;Activity&#x3002;</li>
+<li>startActivityForResult(Intent intent, int requestCode)&#xFF1A;&#x4EE5;&#x6307;&#x5B9A;&#x7684;&#x8BF7;&#x6C42;&#x7801;(requestCode)&#x542F;&#x52A8;&#x65B0;Activity&#xFF0C;&#x5E76;&#x4E14;&#x539F;&#x6765;&#x7684;Activity&#x4F1A;&#x83B7;&#x53D6;&#x65B0;&#x542F;&#x52A8;&#x7684;Activity&#x8FD4;&#x56DE;&#x7684;&#x7ED3;&#x679C;&#xFF08;&#x9700;&#x91CD;&#x5199;onActivityResult(&#x2026;)&#x65B9;&#x6CD5;&#xFF09;&#x3002; </li>
+</ul>
+</li>
+<li><p>&#x542F;&#x52A8;Activity&#x6709;&#x4E24;&#x79CD;&#x65B9;&#x5F0F;&#xFF0C;&#x5173;&#x95ED;Activity&#x4E5F;&#x6709;&#x4E24;&#x79CD;&#x65B9;&#x5F0F;&#xFF1A;</p>
+<ul>
+<li>finish()&#xFF1A;&#x5173;&#x95ED;&#x5F53;&#x524D;Activity&#x3002;</li>
+<li>finishActivity(int requestCode)&#xFF1A;&#x7ED3;&#x675F;&#x4EE5;startActivityForResult(Intent intent, int requestCode)&#x65B9;&#x6CD5;&#x542F;&#x52A8;&#x7684;Activity&#x3002;</li>
+</ul>
+</li>
+<li><p>&#x8981;&#x6CE8;&#x610F;&#x7684;&#x662F;&#x663E;&#x5F0F;&#x542F;&#x52A8;&#x65F6;&#x7528;setClassName(String packageName, String className)&#x65B9;&#x6CD5;&#xFF0C;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x662F;&#x5305;&#x540D;&#xFF0C;&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#x662F;&#x7C7B;&#x7684;&#x5168;&#x8DEF;&#x5F84;&#x540D;&#x3002;&#x9690;&#x5F0F;&#x542F;&#x52A8;&#x7684;&#x65B9;&#x5F0F;&#x4E4B;&#x524D;&#x6CA1;&#x6709;&#x4F8B;&#x5B50;&#x6D89;&#x53CA;&#x5230;&#xFF0C;&#x5B83;&#x9700;&#x8981;&#x5728;&#x6E05;&#x5355;&#x6587;&#x4EF6;&#x4E2D;&#x5BF9;&#x5E94;&#x7684;Activity&#x4E2D;&#x8BBE;&#x7F6E;action&#x6807;&#x7B7E;&#xFF0C;&#x5E76;&#x4E14;&#x4E0E;&#x4EE3;&#x7801;&#x4E2D;&#x7684;setAction()&#x4E2D;&#x8BBE;&#x7F6E;&#x7684;&#x5185;&#x5BB9;&#x4E00;&#x6837;&#x3002;</p>
+</li>
+<li><p>&#x5176;&#x5B9E;&#x9690;&#x5F0F;&#x542F;&#x52A8;&#x65F6;Android&#x7CFB;&#x7EDF;&#x4F1A;&#x6839;&#x636E;&#x6E05;&#x5355;&#x6587;&#x4EF6;&#x4E2D;&#x8BBE;&#x7F6E;&#x7684;action&#x3001;category&#x3001;uri&#x627E;&#x5230;&#x6700;&#x5408;&#x9002;&#x7684;&#x7EC4;&#x4EF6;&#xFF0C;&#x53EA;&#x4E0D;&#x8FC7;&#x672C;&#x4F8B;&#x4E2D;&#x8BBE;&#x7F6E;category&#x4E3A;&quot;android.intent.category.DEFAULT&quot;&#x662F;&#x4E00;&#x79CD;&#x9ED8;&#x8BA4;&#x7684;&#x7C7B;&#x522B;&#xFF0C;&#x5728;&#x8C03;&#x7528;startActivity()&#x65F6;&#x4F1A;&#x81EA;&#x52A8;&#x5C06;&#x8FD9;&#x4E2A;category&#x6DFB;&#x52A0;&#x5230;Intent&#x3002;</p>
+</li>
+<li><blockquote>
+<p>Activity&#x7684;&#x663E;&#x793A;&#x542F;&#x52A8;&#x4E0E;&#x9690;&#x5F0F;&#x542F;&#x52A8;&#xFF0C;&#x4E24;&#x4E2A;Activity&#x4E4B;&#x95F4;&#x5207;&#x6362;</p>
+</blockquote>
+</li>
+</ul>
+<p><img src="https://img1.zlogs.net/20/20200507161829.png" alt=""></p>
+<p><img src="https://img1.zlogs.net/20/20200507161912.png" alt=""></p>
+<p><img src="https://img1.zlogs.net/20/20200507161951.png" alt=""></p>
+<h3 id="&#x4F7F;&#x7528;bundle&#x5728;activity&#x4E4B;&#x95F4;&#x4EA4;&#x6362;&#x6570;&#x636E;">&#x4F7F;&#x7528;Bundle&#x5728;Activity&#x4E4B;&#x95F4;&#x4EA4;&#x6362;&#x6570;&#x636E;</h3>
+<ul>
+<li>&#x5728;&#x5B9E;&#x9645;&#x5F00;&#x53D1;&#x4E2D;&#xFF0C;&#x4E00;&#x4E2A;Activity&#x542F;&#x52A8;&#x53E6;&#x4E00;&#x4E2A;Activity&#x65F6;&#x7ECF;&#x5E38;&#x9700;&#x8981;&#x4F20;&#x8F93;&#x6570;&#x636E;&#x8FC7;&#x53BB;&#x3002;&#x5728;Activity&#x4E4B;&#x95F4;&#x4EA4;&#x6362;&#x6570;&#x636E;&#x5F88;&#x7B80;&#x5355;&#xFF0C;&#x4F7F;&#x7528;Intent&#x5373;&#x53EF;&#x3002;&#x5728;&#x542F;&#x52A8;&#x65B0;&#x7684;Activity&#x65F6;&#xFF0C;&#x5229;&#x7528;Intent&#x63D0;&#x4F9B;&#x7684;&#x591A;&#x79CD;&#x65B9;&#x6CD5;&#x5C06;&#x6570;&#x636E;&#x4F20;&#x9012;&#x8FC7;&#x53BB;&#x3002;&#x5E38;&#x7528;&#x7684;&#x65B9;&#x6CD5;&#x5982;&#x8868;&#x6240;&#x793A;&#x3002;</li>
+</ul>
+<p><img src="https://img1.zlogs.net/20/20200507162048.png" alt=""></p>
+<ul>
+<li>Intent&#x4E3B;&#x8981;&#x901A;&#x8FC7;Bundle&#x5BF9;&#x8C61;&#x6765;&#x643A;&#x5E26;&#x6570;&#x636E;&#xFF0C;&#x4F7F;&#x7528;&#x5230;&#x7684;&#x65B9;&#x6CD5;&#x90FD;&#x5728;&#x4E0A;&#x9762;&#x8868;&#x4E2D;&#x3002;</li>
+</ul>
+<p><img src="https://img1.zlogs.net/20/20200507162146.png" alt=""></p>
+<p><img src="https://img1.zlogs.net/20/20200507162220.png" alt=""></p>
+<h2 id="activity&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;&#x4E0E;&#x542F;&#x52A8;&#x6A21;&#x5F0F;">Activity&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;&#x4E0E;&#x542F;&#x52A8;&#x6A21;&#x5F0F;</h2>
+<h3 id="activity&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;&#x6F14;&#x793A;">Activity&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;&#x6F14;&#x793A;</h3>
+<ul>
+<li>&#x5F53;&#x4E00;&#x4E2A;Android&#x5E94;&#x7528;&#x8FD0;&#x884C;&#x65F6;&#xFF0C;Android&#x7CFB;&#x7EDF;&#x4EE5;Activity&#x6808;&#x7684;&#x5F62;&#x5F0F;&#x7BA1;&#x7406;&#x5E94;&#x7528;&#x4E2D;&#x7684;&#x5168;&#x90E8;Activity&#xFF0C;&#x968F;&#x7740;&#x4E0D;&#x540C;&#x5E94;&#x7528;&#x7684;&#x5207;&#x6362;&#x6216;&#x8005;&#x8BBE;&#x5907;&#x5185;&#x5B58;&#x7684;&#x53D8;&#x5316;&#xFF0C;&#x6BCF;&#x4E2A;Activity&#x90FD;&#x53EF;&#x80FD;&#x4ECE;&#x6D3B;&#x52A8;&#x72B6;&#x6001;&#x53D8;&#x4E3A;&#x975E;&#x6D3B;&#x52A8;&#x72B6;&#x6001;&#x3002;&#x8FD9;&#x4E2A;&#x53D8;&#x5316;&#x8FC7;&#x7A0B;&#x5C31;&#x6D89;&#x53CA;&#x5230;Activity&#x7684;&#x90E8;&#x5206;&#x751A;&#x81F3;&#x5168;&#x90E8;&#x751F;&#x547D;&#x5468;&#x671F;&#x3002;</li>
+<li><p>Activity&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;&#x5206;&#x4E3A;4&#x79CD;&#x72B6;&#x6001;&#xFF0C;&#x5206;&#x522B;&#x5982;&#x4E0B;&#x3002;</p>
+<ul>
+<li>&#xFF08;1&#xFF09;&#x8FD0;&#x884C;&#x72B6;&#x6001;&#xFF1A;&#x5F53;&#x524D;Activity&#x4F4D;&#x4E8E;&#x524D;&#x53F0;&#xFF0C;&#x7528;&#x6237;&#x53EF;&#x89C1;&#xFF0C;&#x53EF;&#x4EE5;&#x83B7;&#x53D6;&#x7126;&#x70B9;&#x3002;</li>
+<li>&#xFF08;2&#xFF09;&#x6682;&#x505C;&#x72B6;&#x6001;&#xFF1A;&#x5176;&#x4ED6;Activity&#x4F4D;&#x4E8E;&#x524D;&#x53F0;&#xFF0C;&#x8BE5;Activity&#x4F9D;&#x7136;&#x53EF;&#x89C1;&#xFF0C;&#x53EA;&#x662F;&#x4E0D;&#x80FD;&#x83B7;&#x53D6;&#x7126;&#x70B9;&#x3002;</li>
+<li>&#xFF08;3&#xFF09;&#x505C;&#x6B62;&#x72B6;&#x6001;&#xFF1A;&#x8BE5;Activity&#x4E0D;&#x53EF;&#x89C1;&#xFF0C;&#x5931;&#x53BB;&#x7126;&#x70B9;&#x3002;</li>
+<li>&#xFF08;4&#xFF09;&#x9500;&#x6BC1;&#x72B6;&#x6001;&#xFF1A;&#x8BE5;Activity&#x7ED3;&#x675F;&#xFF0C;&#x6216;&#x6240;&#x5728;&#x7684;&#x8FDB;&#x7A0B;&#x7ED3;&#x675F;&#x3002;</li>
+</ul>
+</li>
+<li><p>Activity&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;&#x5305;&#x542B;&#x5982;&#x8868;&#x6240;&#x793A;&#x7684;&#x65B9;&#x6CD5;&#x3002;</p>
+</li>
+</ul>
+<p><img src="https://img1.zlogs.net/20/20200507162403.png" alt=""></p>
+<ul>
+<li>&#x5728;&#x5B9E;&#x9645;&#x5F00;&#x53D1;&#x4E2D;&#x4F7F;&#x7528;Activity&#x65F6;&#x6839;&#x636E;&#x5B9E;&#x9645;&#x9700;&#x8981;&#x9009;&#x62E9;&#x91CD;&#x5199;&#x6307;&#x5B9A;&#x7684;&#x65B9;&#x6CD5;&#x5373;&#x53EF;&#x3002;&#x6BD4;&#x5982;&#x524D;&#x9762;&#x7684;&#x5F88;&#x591A;&#x5B9E;&#x4F8B;&#x4E2D;&#xFF0C;&#x7EDD;&#x5927;&#x90E8;&#x5206;&#x90FD;&#x53EA;&#x91CD;&#x5199;&#x4E86;onCreate(Bundle savedStatus)&#x65B9;&#x6CD5;&#xFF0C;&#x8BE5;&#x65B9;&#x6CD5;&#x7528;&#x4E8E;&#x5BF9;Activity&#x7684;&#x521D;&#x59CB;&#x5316;&#x3002;</li>
+</ul>
+<ul>
+<li>&#x53E6;&#x5916;&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x662F;&#xFF0C;&#x5728;&#x5B9E;&#x9645;&#x5F00;&#x53D1;&#x4E2D;&#x4F1A;&#x9047;&#x5230;&#x6A2A;&#x7AD6;&#x5C4F;&#x5207;&#x6362;&#x7684;&#x95EE;&#x9898;&#x3002;&#x5728;&#x4F8B;4-8&#x4E2D;&#x5DF2;&#x7ECF;&#x8BB2;&#x4E86;&#x6A2A;&#x7AD6;&#x5C4F;&#x5207;&#x6362;&#x65F6;&#x8BBE;&#x7F6E;&#x7684;&#x95EE;&#x9898;&#x3002;&#x5F53;&#x624B;&#x673A;&#x6A2A;&#x7AD6;&#x5C4F;&#x5207;&#x6362;&#x65F6;&#xFF0C;Activity&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;&#x53EF;&#x80FD;&#x4F1A;&#x9500;&#x6BC1;&#x91CD;&#x5EFA;&#x3002;</li>
+<li>&#x5982;&#x679C;&#x4E0D;&#x5E0C;&#x671B;&#x6A2A;&#x7AD6;&#x5C4F;&#x5207;&#x6362;&#x65F6;&#x751F;&#x547D;&#x5468;&#x671F;&#x9500;&#x6BC1;&#x91CD;&#x5EFA;&#xFF0C;&#x53EF;&#x4EE5;&#x8BBE;&#x7F6E;&#x5BF9;&#x5E94;Activity&#x7684;android:configChanges&#x5C5E;&#x6027;&#xFF0C;&#x5177;&#x4F53;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</li>
+</ul>
+<pre><code class="lang-xml">android:configChanges=&quot;orientation|ketboardHidden|screenSize&quot;
+</code></pre>
+<ul>
+<li>&#x5982;&#x679C;&#x5E0C;&#x671B;&#x67D0;&#x4E2A;&#x754C;&#x9762;&#x4E0D;&#x968F;&#x624B;&#x673A;&#x7684;&#x6643;&#x52A8;&#x800C;&#x5207;&#x6362;&#x6A2A;&#x7AD6;&#x5C4F;&#xFF0C;&#x53EF;&#x4EE5;&#x53C2;&#x8003;&#x5982;&#x4E0B;&#x8BBE;&#x7F6E;&#xFF1A;</li>
+</ul>
+<pre><code class="lang-xml">android:screenOrientation=&quot;portait&quot; //&#x7AD6;&#x5C4F;
+android:screenOrientation=&quot;landscape&quot; //&#x7AD6;&#x5C4F;
+</code></pre>
+<h3 id="activity&#x7684;4&#x79CD;&#x542F;&#x52A8;&#x6A21;&#x5F0F;">Activity&#x7684;4&#x79CD;&#x542F;&#x52A8;&#x6A21;&#x5F0F;</h3>
+<ul>
+<li>&#x914D;&#x7F6E;Activity&#x65F6;&#x7684;&#x5C5E;&#x6027;lanuchMode&#x2014;&#x2014;&#x542F;&#x52A8;&#x6A21;&#x5F0F;&#x3002;&#x8BE5;&#x5C5E;&#x6027;&#x652F;&#x6301;4&#x79CD;&#x5C5E;&#x6027;&#x503C;&#x3002;&#x5982;&#x8868;&#x6240;&#x793A;&#x3002;</li>
+</ul>
+<p><img src="https://img1.zlogs.net/20/20200507163022.png" alt=""></p>
+<blockquote>
+<p>&#x4F8B;&#x5982;&#xFF1A;android:launchMode=singleTop</p>
+</blockquote>
+<ul>
+<li>Android&#x7CFB;&#x7EDF;&#x4EE5;&#x6808;(Task)&#x7684;&#x5F62;&#x5F0F;&#x7BA1;&#x7406;&#x5E94;&#x7528;&#x4E2D;&#x7684;Activities&#xFF1A;&#x5148;&#x542F;&#x52A8;&#x7684;Activity&#x653E;&#x5728;Task&#x6808;&#x5E95;&#xFF0C;&#x540E;&#x542F;&#x52A8;&#x7684;Activity&#x653E;&#x5728;Task&#x6808;&#x9876;&#xFF0C;&#x6EE1;&#x8DB3;&#x201C;&#x5148;&#x8FDB;&#x540E;&#x51FA;&#x201D;&#x7684;&#x539F;&#x5219;&#x3002;</li>
+<li>Activity&#x7684;&#x542F;&#x52A8;&#x6A21;&#x5F0F;&#xFF0C;&#x5C31;&#x662F;&#x8D1F;&#x8D23;&#x7BA1;&#x7406;Activity&#x7684;&#x542F;&#x52A8;&#x65B9;&#x5F0F;&#x3001;&#x5DF2;&#x7ECF;&#x5B9E;&#x4F8B;&#x5316;&#x7684;Activity&#xFF0C;&#x5E76;&#x63A7;&#x5236;Activity&#x4E0E;Task&#x4E4B;&#x95F4;&#x7684;&#x52A0;&#x8F7D;&#x5173;&#x7CFB;&#x3002;</li>
+</ul>
+<p>&#x4E0B;&#x9762;&#x8BE6;&#x7EC6;&#x4ECB;&#x7ECD;&#x8FD9;4&#x79CD;&#x542F;&#x52A8;&#x6A21;&#x5F0F;&#x3002;</p>
+<ul>
+<li>1.standard&#x6A21;&#x5F0F;<ul>
+<li>standard&#x6A21;&#x5F0F;&#x662F;&#x9ED8;&#x8BA4;&#x7684;&#x542F;&#x52A8;&#x6A21;&#x5F0F;&#xFF0C;&#x5F53;&#x4E00;&#x4E2A;Activity&#x5728;&#x6E05;&#x5355;&#x6587;&#x4EF6;&#x4E2D;&#x6CA1;&#x6709;&#x914D;&#x7F6E;launchMode&#x5C5E;&#x6027;&#x65F6;&#x9ED8;&#x8BA4;&#x5C31;&#x662F;standard&#x6A21;&#x5F0F;&#x542F;&#x52A8;&#x3002;</li>
+<li>&#x5728;&#x8FD9;&#x79CD;&#x6A21;&#x5F0F;&#x4E0B;&#xFF0C;&#x6BCF;&#x6B21;&#x542F;&#x52A8;&#x76EE;&#x6807;Activity&#x65F6;&#xFF0C;Android&#x603B;&#x4F1A;&#x4E3A;&#x76EE;&#x6807;Activity&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x5B9E;&#x4F8B;&#xFF0C;&#x5E76;&#x5C06;&#x8BE5;&#x5B9E;&#x4F8B;&#x653E;&#x5165;&#x5F53;&#x524D;Task&#x6808;&#x4E2D;&#xFF08;&#x8FD8;&#x662F;&#x539F;&#x6765;&#x7684;Task&#x6808;&#xFF0C;&#x5E76;&#x6CA1;&#x6709;&#x542F;&#x52A8;&#x65B0;&#x7684;Task&#xFF09;&#x3002;</li>
+</ul>
+</li>
+<li>2.singleTop&#x6A21;&#x5F0F;<ul>
+<li>&#x8FD9;&#x79CD;&#x6A21;&#x5F0F;&#x4E0E;standard&#x6A21;&#x5F0F;&#x5F88;&#x76F8;&#x4F3C;&#xFF0C;&#x4E0D;&#x540C;&#x70B9;&#x662F;&#xFF1A;&#x5F53;&#x8981;&#x542F;&#x52A8;&#x7684;&#x76EE;&#x6807;Activity&#x5DF2;&#x7ECF;&#x4F4D;&#x4E8E;&#x6808;&#x9876;&#x65F6;&#xFF0C;&#x7CFB;&#x7EDF;&#x4E0D;&#x4F1A;&#x91CD;&#x65B0;&#x521B;&#x5EFA;&#x65B0;&#x7684;&#x76EE;&#x6807;Activity&#x5B9E;&#x4F8B;&#xFF0C;&#x800C;&#x662F;&#x76F4;&#x63A5;&#x590D;&#x7528;&#x6808;&#x9876;&#x5DF2;&#x7ECF;&#x521B;&#x5EFA;&#x597D;&#x7684;Activity&#x3002;</li>
+<li>&#x4E0D;&#x8FC7;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x662F;&#xFF0C;&#x5982;&#x679C;&#x8981;&#x542F;&#x52A8;&#x7684;&#x76EE;&#x6807;Activity&#x4E0D;&#x662F;&#x4F4D;&#x4E8E;&#x6808;&#x9876;&#xFF0C;&#x90A3;&#x4E48;&#x7CFB;&#x7EDF;&#x5C06;&#x4F1A;&#x91CD;&#x65B0;&#x5B9E;&#x4F8B;&#x5316;&#x76EE;&#x6807;Activity&#xFF0C;&#x5E76;&#x5C06;&#x5176;&#x52A0;&#x5165;Task&#x6808;&#x4E2D;&#xFF0C;&#x8FD9;&#x65F6;singleTop&#x6A21;&#x5F0F;&#x4E0E;standard&#x6A21;&#x5F0F;&#x5B8C;&#x5168;&#x4E00;&#x6837;&#x3002;</li>
+</ul>
+</li>
+<li><p>3.singleTask&#x6A21;&#x5F0F;</p>
+<ul>
+<li><p>&#x5F53;&#x4E00;&#x4E2A;Activity&#x91C7;&#x7528;singleTask&#x542F;&#x52A8;&#x6A21;&#x5F0F;&#x540E;&#xFF0C;&#x6574;&#x4E2A;Android&#x5E94;&#x7528;&#x4E2D;&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x8BE5;Activity&#x5B9E;&#x4F8B;&#x3002;</p>
+</li>
+<li><p>&#x7CFB;&#x7EDF;&#x5BF9;&#x5B83;&#x7684;&#x5904;&#x7406;&#x65B9;&#x5F0F;&#x7A0D;&#x663E;&#x590D;&#x6742;&#xFF0C;&#x9996;&#x5148;&#x68C0;&#x67E5;&#x5E94;&#x7528;&#x4E2D;&#x662F;&#x5426;&#x6709;&#x8BE5;Activity&#x7684;&#x5B9E;&#x4F8B;&#x5B58;&#x5728;&#xFF0C;&#x5982;&#x679C;&#x6CA1;&#x6709;&#xFF0C;&#x5219;&#x65B0;&#x5EFA;&#x4E00;&#x4E2A;&#x76EE;&#x6807;Activity&#x5B9E;&#x4F8B;&#xFF1B;&#x5982;&#x679C;&#x5DF2;&#x6709;&#x76EE;&#x6807;Activity&#x5B58;&#x5728;&#xFF0C;&#x5219;&#x4F1A;&#x628A;&#x8BE5;&#x76EE;&#x6807;Activity&#x7F6E;&#x4E8E;&#x6808;&#x9876;&#xFF0C;&#x5728;&#x5176;&#x4E0A;&#x9762;&#x7684;Activity&#x4F1A;&#x5168;&#x90E8;&#x51FA;&#x6808;&#x3002;</p>
+</li>
+</ul>
+</li>
+<li><p>4.singleInstance&#x6A21;&#x5F0F;</p>
+<ul>
+<li>&#x8BBE;&#x7F6E;&#x4E3A; singleInstance &#x6A21;&#x5F0F;&#x7684; Activity &#x5C06;&#x72EC;&#x5360;&#x4E00;&#x4E2A;&#x4EFB;&#x52A1;&#x6808;task&#xFF0C;&#x6B64;&#x65F6;&#x53EF;&#x4EE5;&#x628A;&#x8BE5;Activity&#x770B;&#x4F5C;&#x662F;&#x4E00;&#x4E2A;&#x5E94;&#x7528;&#xFF0C;&#x8FD9;&#x4E2A;&#x5E94;&#x7528;&#x4E0E;&#x5176;&#x4ED6;Activity&#x662F;&#x76F8;&#x4E92;&#x72EC;&#x7ACB;&#x7684;&#xFF0C;&#x5B83;&#x6709;&#x81EA;&#x5DF1;&#x7684;&#x4E0A;&#x4E0B;&#x6587;Activity&#x3002;</li>
+<li>&#x4F8B;&#x5982;&#xFF0C;&#x73B0;&#x6709;&#x4EE5;&#x4E0B;&#x4E09;&#x4E2A;Activity: Act1&#x3001;Act2&#x3001;Act3&#xFF0C;&#x5176;&#x4E2D;Act2 &#x4E3A; singleInstance &#x6A21;&#x5F0F;&#x3002;&#x5B83;&#x4EEC;&#x4E4B;&#x95F4;&#x7684;&#x8DF3;&#x8F6C;&#x5173;&#x7CFB;&#x4E3A;&#xFF1A; Act1 &#x2192; Act2 &#x2192; Act3 &#xFF0C;&#x73B0;&#x5728;&#x5728;Act3&#x4E2D;&#x6309;&#x4E0B;&#x8FD4;&#x56DE;&#x952E;&#xFF0C;&#x7531;&#x4E8E;Act2&#x4F4D;&#x4E8E;&#x4E00;&#x4E2A;&#x72EC;&#x7ACB;&#x7684;task&#x4E2D;&#xFF0C;&#x5B83;&#x4E0D;&#x5C5E;&#x4E8E;Act3&#x7684;&#x4E0A;&#x4E0B;&#x6587;activity&#xFF0C;&#x6240;&#x4EE5;&#x6B64;&#x65F6;&#x5C06;&#x76F4;&#x63A5;&#x8FD4;&#x56DE;&#x5230;Act1&#x3002;&#x8FD9;&#x5C31;&#x662F;singleInstance&#x6A21;&#x5F0F;&#x3002;</li>
+</ul>
+</li>
+</ul>
+<h2 id="fragment&#x7684;&#x5EFA;&#x7ACB;&#x4E0E;&#x4F7F;&#x7528;">Fragment&#x7684;&#x5EFA;&#x7ACB;&#x4E0E;&#x4F7F;&#x7528;</h2>
+<ul>
+<li>Fragment&#x4EE3;&#x8868;<strong>Activity&#x7684;&#x5B50;&#x6A21;&#x5757;</strong>&#xFF0C;&#x662F;Activity&#x754C;&#x9762;&#x7684;&#x4E00;&#x90E8;&#x5206;&#x6216;&#x4E00;&#x79CD;&#x884C;&#x4E3A;&#x3002;Fragment&#x62E5;&#x6709;&#x81EA;&#x5DF1;&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x63A5;&#x6536;&#x81EA;&#x5DF1;&#x7684;&#x8F93;&#x5165;&#x4E8B;&#x4EF6;&#x3002;</li>
+<li><p>Fragment&#x4E0E;Activity&#x5173;&#x7CFB;</p>
+<ul>
+<li>Fragment&#x662F;&#x4F9D;&#x8D56;&#x4E8E;Activity&#x7684;&#xFF0C;&#x4E0D;&#x80FD;&#x72EC;&#x7ACB;&#x5B58;&#x5728;&#x7684;&#x3002;</li>
+<li>&#x4E00;&#x4E2A;Activity&#x91CC;&#x53EF;&#x4EE5;&#x6709;&#x591A;&#x4E2A;Fragment&#x3002;</li>
+<li>&#x4E00;&#x4E2A;Fragment&#x53EF;&#x4EE5;&#x88AB;&#x591A;&#x4E2A;Activity&#x91CD;&#x7528;&#x3002;</li>
+<li>Fragment&#x6709;&#x81EA;&#x5DF1;&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;&#xFF0C;&#x5E76;&#x80FD;&#x63A5;&#x6536;&#x8F93;&#x5165;&#x4E8B;&#x4EF6;&#x3002;</li>
+<li>&#x80FD;&#x5728;Activity&#x8FD0;&#x884C;&#x65F6;&#x52A8;&#x6001;&#x5730;&#x6DFB;&#x52A0;&#x6216;&#x5220;&#x9664;Fragment&#x3002;</li>
+</ul>
+</li>
+<li><p>Fragment&#x7684;&#x4F18;&#x52BF;&#x6709;&#x4EE5;&#x4E0B;&#x51E0;&#x70B9;&#xFF1A;</p>
+<ul>
+<li>&#x6A21;&#x5757;&#x5316;&#xFF08;Modularity&#xFF09;&#xFF1A;&#x4E0D;&#x5FC5;&#x628A;&#x6240;&#x6709;&#x4EE3;&#x7801;&#x5168;&#x90E8;&#x5199;&#x5728;Activity&#x4E2D;&#xFF0C;&#x800C;&#x662F;&#x628A;&#x4EE3;&#x7801;&#x5199;&#x5728;&#x5404;&#x81EA;&#x7684;Fragment&#x4E2D;&#x3002;</li>
+<li>&#x53EF;&#x91CD;&#x7528;&#xFF08;Reusability&#xFF09;&#xFF1A;&#x591A;&#x4E2A;Activity&#x53EF;&#x4EE5;&#x91CD;&#x7528;&#x4E00;&#x4E2A;Fragment&#x3002;</li>
+<li>&#x53EF;&#x9002;&#x914D;&#xFF08;Adaptability&#xFF09;&#xFF1A;&#x6839;&#x636E;&#x786C;&#x4EF6;&#x7684;&#x5C4F;&#x5E55;&#x5C3A;&#x5BF8;&#x3001;&#x5C4F;&#x5E55;&#x65B9;&#x5411;&#xFF0C;&#x80FD;&#x591F;&#x65B9;&#x4FBF;&#x5730;&#x5B9E;&#x73B0;&#x4E0D;&#x540C;&#x7684;&#x5E03;&#x5C40;&#xFF0C;&#x8FD9;&#x6837;&#x7528;&#x6237;&#x4F53;&#x9A8C;&#x66F4;&#x597D;&#x3002;</li>
+</ul>
+</li>
+</ul>
+<h2 id="fragment&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;">Fragment&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;</h2>
+<ul>
+<li>&#x4E0E;Activity&#x4E00;&#x6837;&#xFF0C;Fragment&#x4E5F;&#x6709;&#x81EA;&#x5DF1;&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;&#xFF0C;&#x5982;&#x56FE;&#x6240;&#x793A;&#x3002;</li>
+</ul>
+<p><img src="https://img1.zlogs.net/20/20200507163700.png" alt=""></p>
+<ul>
+<li>&#x5728;&#x4E0A;&#x56FE;&#x4E2D;&#x5C55;&#x793A;&#x4E86;Fragment&#x751F;&#x547D;&#x5468;&#x671F;&#x4E2D;&#x88AB;&#x56DE;&#x8C03;&#x7684;&#x6240;&#x6709;&#x65B9;&#x6CD5;&#x3002;<ul>
+<li>onCreate(Bundle saveStatus)&#xFF1A;&#x521B;&#x5EFA;Fragment&#x65F6;&#x88AB;&#x56DE;&#x8C03;&#xFF0C;&#x8BE5;&#x65B9;&#x6CD5;&#x53EA;&#x4F1A;&#x88AB;&#x56DE;&#x8C03;&#x4E00;&#x6B21;&#x3002;</li>
+<li>onCreateView()&#xFF1A;&#x6BCF;&#x6B21;&#x521B;&#x5EFA;&#x3001;&#x7ED8;&#x5236;&#x8BE5;Fragment&#x7684;View&#x7EC4;&#x4EF6;&#x65F6;&#x56DE;&#x8C03;&#x8BE5;&#x65B9;&#x6CD5;&#xFF0C;Fragment&#x5C06;&#x4F1A;&#x663E;&#x793A;&#x8BE5;&#x65B9;&#x6CD5;&#x8FD4;&#x56DE;&#x7684;View&#x7EC4;&#x4EF6;&#x3002;</li>
+<li>onActivityCreated()&#xFF1A;&#x5F53;Fragment&#x6240;&#x5728;&#x7684;Activity&#x88AB;&#x542F;&#x52A8;&#x5B8C;&#x6210;&#x540E;&#x56DE;&#x8C03;&#x8BE5;&#x65B9;&#x6CD5;&#x3002;</li>
+<li>onStart()&#xFF1A;&#x542F;&#x52A8;Fragment&#x65F6;&#x56DE;&#x8C03;&#x8BE5;&#x65B9;&#x6CD5;&#x3002;</li>
+<li>onResume()&#xFF1A;&#x6062;&#x590D;Fragment&#x65F6;&#x88AB;&#x56DE;&#x8C03;&#xFF0C;&#x5728;onStart()&#x65B9;&#x6CD5;&#x540E;&#x4E00;&#x5B9A;&#x4F1A;&#x56DE;&#x8C03;&#x8BE5;&#x65B9;&#x6CD5;&#x3002;</li>
+<li>onPause()&#xFF1A;&#x6682;&#x505C;Fragment&#x65F6;&#x88AB;&#x56DE;&#x8C03;&#x3002;</li>
+<li>onDestroyView()&#xFF1A;&#x9500;&#x6BC1;&#x8BE5;Fragment&#x6240;&#x5305;&#x542B;&#x7684;View&#x7EC4;&#x4EF6;&#x65F6;&#x88AB;&#x56DE;&#x8C03;&#x3002;</li>
+<li>onDestroy()&#xFF1A;&#x9500;&#x6BC1;&#x8BE5;Fragment&#x65F6;&#x88AB;&#x56DE;&#x8C03;&#x3002;</li>
+<li>onDetach()&#xFF1A;&#x5C06;&#x8BE5;Fragment&#x4ECE;&#x5BBF;&#x4E3B;Activity&#x4E2D;&#x5220;&#x9664;&#x3001;&#x66FF;&#x6362;&#x5B8C;&#x6210;&#x65F6;&#x56DE;&#x8C03;&#x8BE5;&#x65B9;&#x6CD5;&#xFF0C;&#x5728;onDestroy()&#x65B9;&#x6CD5;&#x540E;&#x4E00;&#x5B9A;&#x4F1A;&#x56DE;&#x8C03;onDetach()&#x65B9;&#x6CD5;&#xFF0C;&#x4E14;&#x53EA;&#x4F1A;&#x88AB;&#x56DE;&#x8C03;&#x4E00;&#x6B21;&#x3002;</li>
+</ul>
+</li>
+<li>&#x4E0E;&#x5F00;&#x53D1;Activity&#x65F6;&#x4E00;&#x6837;&#xFF0C;&#x5F00;&#x53D1;Fragment&#x65F6;&#x4E5F;&#x662F;&#x6839;&#x636E;&#x9700;&#x8981;&#x9009;&#x62E9;&#x6307;&#x5B9A;&#x7684;&#x65B9;&#x6CD5;&#x8FDB;&#x884C;&#x91CD;&#x5199;&#xFF0C;Fragment&#x4E2D;&#x6700;&#x5E38;&#x88AB;&#x91CD;&#x5199;&#x7684;&#x65B9;&#x6CD5;&#x662F;onCreateView()&#x3002;</li>
+</ul>
+<h3 id="&#x521B;&#x5EFA;fragment">&#x521B;&#x5EFA;Fragment</h3>
+<ul>
+<li>&#x4E0E;&#x521B;&#x5EFA; Activity &#x7C7B;&#x4F3C;&#xFF0C;&#x5F00;&#x53D1;&#x8005;&#x5B9E;&#x73B0;&#x7684; Fragment &#x5FC5;&#x987B;&#x7EE7;&#x627F; Fragment &#x57FA;&#x7C7B;</li>
+<li>&#x63A5;&#x4E0B;&#x6765;&#x5B9E;&#x73B0; Fragment &#x4E0E;&#x5B9E;&#x73B0; Activity &#x975E;&#x5E38;&#x76F8;&#x4F3C;&#xFF0C;&#x5B83;&#x4EEC;&#x90FD;&#x9700;&#x8981;&#x5B9E;&#x73B0;&#x4E0E; Activity &#x7C7B;&#x4F3C;&#x7684;&#x56DE;&#x8C03;&#x65B9;&#x6CD5;&#xFF0C;&#x4F8B;&#x5982; onCreate() &#x3001; onCreateView() &#x3001; onStart() &#x3001; onResume() &#x3001; onPause() &#x3001; onStop() &#x7B49;&#x3002; </li>
+<li>&#x5BF9;&#x4E8E;&#x5927;&#x90E8;&#x5206; Fragment &#x800C;&#x8A00;&#xFF0C;&#x901A;&#x5E38;&#x90FD;&#x4F1A;&#x91CD;&#x5199;onCreate() &#x3001; onCreateView() &#x548C;onPause() &#x8FD9;&#x4E09;&#x4E2A;&#x65B9;&#x6CD5;&#xFF0C;&#x5B9E;&#x9645;&#x5F00;&#x53D1;&#x4E2D;&#x4E5F;&#x53EF;&#x4EE5;&#x6839;&#x636E;&#x9700;&#x8981;&#x91CD;&#x5199; Fragment &#x7684;&#x4EFB;&#x610F;&#x56DE;&#x8C03;&#x65B9;&#x6CD5;&#x3002;</li>
+</ul>
+<h3 id="fragment&#x4E0E;activity&#x901A;&#x4FE1;">Fragment&#x4E0E;Activity&#x901A;&#x4FE1;</h3>
+<ul>
+<li>&#x5728;Activity&#x4E2D;&#x663E;&#x793A;Fragment&#x5219;&#x5FC5;&#x987B;&#x5C06;Fragment&#x6DFB;&#x52A0;&#x5230;Activity&#x4E2D;&#x3002;&#x5C06;Fragment&#x6DFB;&#x52A0;&#x5230;Activity&#x4E2D;&#x6709;&#x5982;&#x4E0B;&#x4E24;&#x79CD;&#x65B9;&#x5F0F;&#xFF1A;<ul>
+<li>&#x5728;&#x5E03;&#x5C40;&#x6587;&#x4EF6;&#x4E2D;&#x6DFB;&#x52A0;&#xFF1A;&#x5728;&#x5E03;&#x5C40;&#x6587;&#x4EF6;&#x4E2D;&#x4F7F;&#x7528;<code>&lt;fragment.../&gt;</code>&#x5143;&#x7D20;&#x6DFB;&#x52A0;Fragment,&#x5176;&#x4E2D;<code>&lt;fragment.../&gt;</code> &#x7684;<code>android:name</code>&#x5C5E;&#x6027;&#x5FC5;&#x987B;&#x6307;&#x5B9A;Fragment&#x7684;&#x5B9E;&#x73B0;&#x7C7B;&#x3002;</li>
+<li>&#x5728;Java&#x4EE3;&#x7801;&#x4E2D;&#x6DFB;&#x52A0;&#xFF1A;Java&#x4EE3;&#x7801;&#x4E2D;&#x901A;&#x8FC7;FragmentTransaction&#x5BF9;&#x8C61;&#x7684;relpace()&#x6216;add()&#x65B9;&#x6CD5;&#x6765;&#x66FF;&#x6362;&#x6216;&#x6DFB;&#x52A0;Fragment&#x3002;</li>
+</ul>
+</li>
+<li>&#x5728;&#x7B2C;&#x4E8C;&#x79CD;&#x65B9;&#x5F0F;&#x4E2D;&#xFF0C;Activity&#x7684;getFragmentManager()&#x65B9;&#x6CD5;&#x8FD4;&#x56DE;FragmentManager&#xFF0C;&#x901A;&#x8FC7;&#x8C03;&#x7528;FragmentManager&#x7684;beginTransaction()&#x65B9;&#x6CD5;&#x83B7;&#x53D6;FragmentTransaction&#x5BF9;&#x8C61;&#x3002;</li>
+</ul>
+<ul>
+<li>&#x8981;&#x5B9E;&#x73B0;Activity&#x4E0E;Fragment&#x901A;&#x8BAF;&#xFF0C;&#x9996;&#x5148;&#x9700;&#x8981;&#x83B7;&#x53D6;&#x5BF9;&#x5E94;&#x7684;&#x5BF9;&#x8C61;&#x3002;&#x5728;Activity&#x4E2D;&#x83B7;&#x53D6;Fragement&#xFF0C;&#x4EE5;&#x53CA;&#x5728;Fragment&#x4E2D;&#x83B7;&#x53D6;Activity&#x7684;&#x65B9;&#x6CD5;&#x5982;&#x4E0B;&#x3002;<ul>
+<li>&#xFF08;1&#xFF09;Fragment&#x83B7;&#x53D6;&#x5B83;&#x6240;&#x5728;&#x7684;Activity&#xFF1A;&#x8C03;&#x7528;Fragment&#x7684;getActivity()&#x65B9;&#x6CD5;&#x5373;&#x53EF;&#x8FD4;&#x56DE;&#x5B83;&#x6240;&#x5728;&#x7684;Activity&#x3002;</li>
+<li>&#xFF08;2&#xFF09;Activity&#x83B7;&#x53D6;&#x5B83;&#x5305;&#x542B;&#x7684;Fragment&#xFF1A;&#x8C03;&#x7528;Activity&#x5173;&#x8054;&#x7684;FragmentManager&#x7684;findFragmentByld(int id)&#x6216;findFragmentByTag(String tag)&#x65B9;&#x6CD5;&#x5373;&#x53EF;&#x83B7;&#x53D6;&#x6307;&#x5B9A;&#x7684;Fragment&#x3002;</li>
+</ul>
+</li>
+<li>&#x5728;&#x754C;&#x9762;&#x5E03;&#x5C40;&#x6587;&#x4EF6;&#x4E2D;&#x4F7F;&#x7528; <code>&lt;fragment.../&gt;</code>&#x5143;&#x7D20;&#x6DFB;&#x52A0;Fragment&#x65F6;&#xFF0C;&#x53EF;&#x4EE5;&#x4E3A; <code>&lt;fragment.../&gt;</code>&#x5143;&#x7D20;&#x6307;&#x5B9A;android:id&#x6216;android:tag&#x5C5E;&#x6027;&#xFF0C;&#x8FD9;&#x4E24;&#x4E2A;&#x5C5E;&#x6027;&#x90FD;&#x53EF;&#x7528;&#x4E8E;&#x6807;&#x8BC6;&#x8BE5;Fragment&#xFF0C;&#x63A5;&#x4E0B;&#x6765;Activity&#x5C06;&#x53EF;&#x901A;&#x8FC7;findFragmentByld(int id)&#x6216;findFragmentByTag(String tag)&#x6765;&#x83B7;&#x53D6;&#x8BE5;Fragment&#x3002;</li>
+</ul>
+<ul>
+<li>&#x8003;&#x8651;&#x5230;&#x6709;Activity&#x4E0E;Fragment&#x4E92;&#x76F8;&#x4F20;&#x9012;&#x6570;&#x636E;&#x7684;&#x60C5;&#x51B5;&#xFF0C;&#x53EF;&#x4EE5;&#x6309;&#x7167;&#x4EE5;&#x4E0B;&#x4E09;&#x79CD;&#x65B9;&#x5F0F;&#x8FDB;&#x884C;&#x3002;<ul>
+<li>&#xFF08;1&#xFF09;Activity&#x5411;Fragment&#x4F20;&#x9012;&#x6570;&#x636E;&#xFF1A;&#x5728;Activity&#x4E2D;&#x521B;&#x5EFA;Bundle&#x6570;&#x636E;&#x5305;&#xFF0C;&#x5E76;&#x8C03;&#x7528;Fragment&#x7684;setArguments(Bundle bundle)&#x65B9;&#x6CD5;&#x5373;&#x53EF;&#x5C06;Bundle&#x6570;&#x636E;&#x5305;&#x4F20;&#x7ED9;Fragment&#x3002;</li>
+<li>&#xFF08;2&#xFF09;Fragment&#x5411;Activity&#x4F20;&#x9012;&#x6570;&#x636E;&#x6216;Activity&#x9700;&#x8981;&#x5728;Fragment&#x8FD0;&#x884C;&#x4E2D;&#x8FDB;&#x884C;&#x5B9E;&#x65F6;&#x901A;&#x4FE1;&#xFF1A;&#x5728;Fragment&#x4E2D;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x5185;&#x90E8;&#x56DE;&#x8C03;&#x63A5;&#x53E3;&#xFF0C;&#x518D;&#x8BA9;&#x5305;&#x542B;&#x8BE5;Fragment&#x7684;Activity&#x5B9E;&#x73B0;&#x8BE5;&#x56DE;&#x8C03;&#x63A5;&#x53E3;&#xFF0C;&#x8FD9;&#x6837;Fragment&#x5373;&#x53EF;&#x8C03;&#x7528;&#x8BE5;&#x56DE;&#x8C03;&#x65B9;&#x6CD5;&#x5C06;&#x6570;&#x636E;&#x4F20;&#x7ED9;Activity&#x3002;</li>
+<li>&#xFF08;3&#xFF09;&#x901A;&#x8FC7;&#x5E7F;&#x64AD;&#x7684;&#x65B9;&#x5F0F;&#x3002;</li>
+</ul>
+</li>
+</ul>
+<h3 id="fragment&#x7BA1;&#x7406;&#x4E0E;fragment&#x4E8B;&#x52A1;">Fragment&#x7BA1;&#x7406;&#x4E0E;Fragment&#x4E8B;&#x52A1;</h3>
+<ul>
+<li>Activity&#x7BA1;&#x7406;Fragment&#x4E3B;&#x8981;&#x4F9D;&#x9760;FragmentManager&#x3002;</li>
+<li><p>FragmentManager&#x7684;&#x529F;&#x80FD;&#x5982;&#x4E0B;&#x3002;</p>
+<ul>
+<li>&#xFF08;1&#xFF09;&#x4F7F;&#x7528;findFragmentByld()&#x6216;findFragmentByTag()&#x65B9;&#x6CD5;&#x6765;&#x83B7;&#x53D6;&#x6307;&#x5B9A;Fragment&#x3002;</li>
+<li>&#xFF08;2&#xFF09;&#x8C03;&#x7528;popBackStack()&#x65B9;&#x6CD5;&#x5C06;Fragment&#x4ECE;&#x540E;&#x53F0;&#x627E;&#x5230;&#x5F39;&#x51FA;(&#x6A21;&#x62DF;&#x7528;&#x6237;&#x6309;&#x4E0B;Back&#x952E;)&#x3002;</li>
+<li>&#xFF08;3&#xFF09;&#x8C03;&#x7528;addOnBackStackChangeListener()&#x6CE8;&#x518C;&#x4E00;&#x4E2A;&#x76D1;&#x542C;&#x5668;&#xFF0C;&#x7528;&#x4E8E;&#x76D1;&#x542C;&#x540E;&#x53F0;&#x6808;&#x7684;&#x53D8;&#x5316;&#x3002;&#x5982;&#x679C;&#x9700;&#x8981;&#x6DFB;&#x52A0;&#x3001;&#x5220;&#x9664;&#x3001;&#x66FF;&#x6362;Fragment&#xFF0C;&#x5219;&#x9700;&#x8981;&#x501F;&#x52A9;FragmentTransaction&#x5BF9;&#x8C61;&#xFF0C;&#x8BE5;&#x5BF9;&#x8C61;&#x4EE3;&#x8868;Activity&#x5BF9;Fragment&#x6267;&#x884C;&#x7684;&#x591A;&#x4E2A;&#x6539;&#x53D8;&#x3002;</li>
+</ul>
+</li>
+<li><p>&#x6BCF;&#x4E2A;FragmentTransaction&#x53EF;&#x4EE5;&#x5305;&#x542B;&#x591A;&#x4E2A;&#x5BF9;Fragment&#x7684;&#x4FEE;&#x6539;&#xFF0C;&#x6BD4;&#x5982;&#x5305;&#x542B;&#x8C03;&#x7528;&#x591A;&#x4E2A;add()&#x3001;replace()&#x3001;&#x548C;remove()&#x64CD;&#x4F5C;&#xFF0C;&#x6700;&#x540E;&#x8C03;&#x7528;commit()&#x63D0;&#x4EA4;&#x4E8B;&#x52A1;&#x5373;&#x53EF;&#x3002;</p>
+</li>
+<li>&#x5728;&#x8C03;&#x7528;commit()&#x4E4B;&#x524D;&#xFF0C;&#x5F00;&#x53D1;&#x8005;&#x4E5F;&#x53EF;&#x8C03;&#x7528;addToBackStack()&#x5C06;&#x4E8B;&#x52A1;&#x6DFB;&#x52A0;&#x5230;back&#x6808;&#xFF0C;&#x8BE5;&#x6808;&#x7531;Activity&#x8D1F;&#x8D23;&#x7BA1;&#x7406;&#xFF0C;&#x8FD9;&#x6837;&#x5141;&#x8BB8;&#x7528;&#x6237;&#x6309;BACK&#x6309;&#x952E;&#x8FD4;&#x56DE;&#x5230;&#x524D;&#x4E00;&#x4E2A;Fragment&#x72B6;&#x6001;&#x3002;</li>
+</ul>
+<p><img src="https://img1.zlogs.net/20/20200507164255.png" alt=""></p>
+<ul>
+<li>&#x5728;&#x4E0A;&#x9762;&#x7684;&#x793A;&#x4F8B;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;newFragment&#x66FF;&#x6362;&#x4E86;&#x5F53;&#x524D;&#x754C;&#x9762;&#x5E03;&#x5C40;&#x4E2D;ID&#x4E3A;fragment_container&#x7684;&#x5BB9;&#x5668;&#x5185;&#x7684;Fragment&#xFF0C;&#x7531;&#x4E8E;&#x7A0B;&#x5E8F;&#x8C03;&#x7528;&#x4E86;addToBackStack()&#x5C06;&#x8BE5;replace&#x64CD;&#x4F5C;&#x6DFB;&#x52A0;&#x5230;&#x4E86;back&#x6808;&#x4E2D;&#xFF0C;&#x56E0;&#x6B64;&#x7528;&#x6237;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x6309;&#x4E0B;&#x8FD4;&#x56DE;&#x952E;&#x8FD4;&#x56DE;&#x66FF;&#x6362;&#x4E4B;&#x524D;&#x7684;&#x72B6;&#x6001;&#x3002;</li>
+</ul>
+<div id="gitalk-container"></div>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="1006.html" class="navigation navigation-prev " aria-label="Previous page: (基本)组件">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="1008.html" class="navigation navigation-next " aria-label="Next page: Service">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Activity和Fragment","level":"1.4.1","depth":2,"next":{"title":"Service","level":"1.4.2","depth":2,"path":"page/1008.md","ref":"page/1008.md","articles":[]},"previous":{"title":"(基本)组件","level":"1.4","depth":1,"path":"page/1006.md","ref":"page/1006.md","articles":[{"title":"Activity和Fragment","level":"1.4.1","depth":2,"path":"page/1007.md","ref":"page/1007.md","articles":[]},{"title":"Service","level":"1.4.2","depth":2,"path":"page/1008.md","ref":"page/1008.md","articles":[]},{"title":"BroadcastReceiver","level":"1.4.3","depth":2,"path":"page/1009.md","ref":"page/1009.md","articles":[]},{"title":"ContentProvider","level":"1.4.4","depth":2,"path":"page/1010.md","ref":"page/1010.md","articles":[]},{"title":"*Intent和IntentFilter","level":"1.4.5","depth":2,"path":"page/1011.md","ref":"page/1011.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","-sharing","theme-simple@git+https://github.com/plugins-zander/gitbook-plugin-theme-simple.git","search-pro@git+https://github.com/plugins-zander/gitbook-plugin-search-pro.git","katex@git+https://github.com/plugins-zander/gitbook-plugin-katex.git","splitter@git+https://github.com/plugins-zander/gitbook-plugin-splitter.git","mygitalk@git+https://github.com/plugins-zander/gitbook-plugin-mygitalk.git","edit-link@git+https://github.com/plugins-zander/gitbook-plugin-edit-link.git","sitemap-general@git+https://github.com/plugins-zander/gitbook-plugin-sitemap-general.git","gtag@git+https://github.com/plugins-zander/gitbook-plugin-gtag.git","chapter-fold@git+https://github.com/plugins-zander/gitbook-plugin-chapter-fold.git","copy-code-button@git+https://github.com/plugins-zander/gitbook-plugin-copy-code-button.git","page-toc@git+https://github.com/plugins-zander/gitbook-plugin-page-toc.git"],"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"},"pluginsConfig":{"chapter-fold":{},"splitter":{},"search-pro":{},"page-toc":{"position":"before-first","selector":".markdown-section h1, .markdown-section h2, .markdown-section h3, .markdown-section h4","showByDefault":true},"sitemap-general":{"prefix":"https://zlogs.net/learn-android/"},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"gtag":{"token":"UA-149127400-1"},"highlight":{},"theme-simple":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"copy-code-button":{},"mygitalk":{"flipMoveOptions":{},"clientID":"364365ceb2659b383d73","number":-1,"perPage":10,"proxy":"https://cors-anywhere.herokuapp.com/https://github.com/login/oauth/access_token","admin":["zanderzhao"],"createIssueManually":false,"distractionFreeMode":false,"repo":"talk","owner":"zanderzhao","enableHotKey":true,"clientSecret":"447ef6648e9dfffe2e2a65c34c8ead1dd4b7af54","pagerDirection":"last","labels":["Gitalk"]},"edit-link":{"label":"EDIT","base":"https://github.com/ZanderZhao/learn-android/edit/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Zander Zhao","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"learn-android","language":"zh-hans","gitbook":"3.2.3","description":"learn-android - Zander's Learn Book"},"file":{"path":"page/1007.md","mtime":"2020-06-13T17:43:32.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-06-13T17:49:20.330Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="https://cdn.jsdelivr.net/gh/ZanderZhao/cdn/js/md5.min.js"></script>
+        
+    
+        
+        <script src="https://cdn.jsdelivr.net/gh/ZanderZhao/cdn/js/gitalk.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-mygitalk/mygitalk.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-gtag/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-page-toc/anchor-3.1.1.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-page-toc/page-toc.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
