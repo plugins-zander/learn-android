@@ -436,13 +436,201 @@ FileOutputStream openFileOutput(String name, int mode)&#xFF1A;&#x6253;&#x5F00;&#
 <p>Android&#x4E2D;&#x8FD8;&#x63D0;&#x4F9B;&#x4E86;&#x8BBF;&#x95EE;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7684;&#x6570;&#x636E;&#x6587;&#x4EF6;&#x5939;&#x65B9;&#x6CD5;&#xFF0C;&#x5982;&#x8868;&#x6240;&#x793A;&#x3002;</p>
 <p><img src="https://img1.zlogs.net/20/20200614010706.png" alt="image"></p>
 <h3 id="&#x8BFB;&#x5199;sd&#x5361;&#x4E0A;&#x7684;&#x6587;&#x4EF6;">&#x8BFB;&#x5199;SD&#x5361;&#x4E0A;&#x7684;&#x6587;&#x4EF6;</h3>
-<p>&#x4E0A;&#x9762;&#x4ECB;&#x7ECD;&#x4E86;&#x5982;&#x4F55;&#x6253;&#x5F00;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x4E2D;&#x6570;&#x636E;&#x6587;&#x4EF6;&#x5939;&#x4E2D;&#x7684;&#x6587;&#x4EF6;&#xFF0C;&#x8003;&#x8651;&#x5230;&#x624B;&#x673A;&#x5185;&#x7F6E;&#x7684;&#x5B58;&#x50A8;&#x7A7A;&#x95F4;&#x53D7;&#x9650;&#xFF0C;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x4E2D;&#x7684;&#x5927;&#x6587;&#x4EF6;&#x6570;&#x636E;&#x4E00;&#x822C;&#x662F;&#x5728;SD&#x5361;&#x4E0A;&#x5B8C;&#x6210;&#x8BFB;&#x5199;&#x64CD;&#x4F5C;&#x7684;&#x3002;&#x5728;SD&#x5361;&#x4E0A;&#x8BFB;&#x5199;&#x6587;&#x4EF6;&#x7684;&#x6B65;&#x9AA4;&#x5982;&#x4E0B;&#xFF1A;
-&#xFF08;1&#xFF09;&#x8C03;&#x7528;Environment&#x7684;getExternalStorageState()&#x65B9;&#x6CD5;&#x5224;&#x65AD;&#x624B;&#x673A;&#x662F;&#x5426;&#x63D2;&#x5165;SD&#x5361;&#xFF0C;&#x5E76;&#x4E14;&#x8BE5;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x662F;&#x5426;&#x5177;&#x6709;&#x8BFB;&#x5199;SD&#x5361;&#x7684;&#x6743;&#x9650;&#x3002;&#x5F88;&#x591A;&#x65F6;&#x5019;&#x4F7F;&#x7528;&#x5982;&#x4E0B;&#x4EE3;&#x7801;&#x8FDB;&#x884C;&#x5224;&#x65AD;&#xFF1A;</p>
+<p>&#x4E0A;&#x9762;&#x4ECB;&#x7ECD;&#x4E86;&#x5982;&#x4F55;&#x6253;&#x5F00;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x4E2D;&#x6570;&#x636E;&#x6587;&#x4EF6;&#x5939;&#x4E2D;&#x7684;&#x6587;&#x4EF6;&#xFF0C;&#x8003;&#x8651;&#x5230;&#x624B;&#x673A;&#x5185;&#x7F6E;&#x7684;&#x5B58;&#x50A8;&#x7A7A;&#x95F4;&#x53D7;&#x9650;&#xFF0C;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x4E2D;&#x7684;&#x5927;&#x6587;&#x4EF6;&#x6570;&#x636E;&#x4E00;&#x822C;&#x662F;&#x5728;SD&#x5361;&#x4E0A;&#x5B8C;&#x6210;&#x8BFB;&#x5199;&#x64CD;&#x4F5C;&#x7684;&#x3002;&#x5728;SD&#x5361;&#x4E0A;&#x8BFB;&#x5199;&#x6587;&#x4EF6;&#x7684;&#x6B65;&#x9AA4;&#x5982;&#x4E0B;&#xFF1A;</p>
+<ul>
+<li>&#xFF08;1&#xFF09;&#x8C03;&#x7528;Environment&#x7684;getExternalStorageState()&#x65B9;&#x6CD5;&#x5224;&#x65AD;&#x624B;&#x673A;&#x662F;&#x5426;&#x63D2;&#x5165;SD&#x5361;&#xFF0C;&#x5E76;&#x4E14;&#x8BE5;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x662F;&#x5426;&#x5177;&#x6709;&#x8BFB;&#x5199;SD&#x5361;&#x7684;&#x6743;&#x9650;&#x3002;&#x5F88;&#x591A;&#x65F6;&#x5019;&#x4F7F;&#x7528;&#x5982;&#x4E0B;&#x4EE3;&#x7801;&#x8FDB;&#x884C;&#x5224;&#x65AD;&#xFF1A;</li>
+</ul>
 <p><code>Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED);</code></p>
-<p>&#xFF08;2&#xFF09;&#x8C03;&#x7528;Environment&#x7684;getExternalStorageDirectory()&#x65B9;&#x6CD5;&#x83B7;&#x53D6;SD&#x5361;&#x7684;&#x6587;&#x4EF6;&#x76EE;&#x5F55;&#x3002;
-&#xFF08;3&#xFF09;&#x4F7F;&#x7528;FileInputStream&#x3001;FileOutputStream&#x3001;FileReader&#x6216;FileWriter&#x8BFB;&#x5199;SD&#x5361;&#x4E2D;&#x7684;&#x6587;&#x4EF6;&#x3002;</p>
+<ul>
+<li>&#xFF08;2&#xFF09;&#x8C03;&#x7528;Environment&#x7684;getExternalStorageDirectory()&#x65B9;&#x6CD5;&#x83B7;&#x53D6;SD&#x5361;&#x7684;&#x6587;&#x4EF6;&#x76EE;&#x5F55;&#x3002;</li>
+<li>&#xFF08;3&#xFF09;&#x4F7F;&#x7528;FileInputStream&#x3001;FileOutputStream&#x3001;FileReader&#x6216;FileWriter&#x8BFB;&#x5199;SD&#x5361;&#x4E2D;&#x7684;&#x6587;&#x4EF6;&#x3002;</li>
+</ul>
 <p>&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x662F;&#xFF0C;&#x8BFB;&#x5199;SD&#x5361;&#x4E0A;&#x7684;&#x6570;&#x636E;&#x65F6;&#x5FC5;&#x987B;&#x5728;&#x7A0B;&#x5E8F;&#x7684;&#x6E05;&#x5355;&#x6587;&#x4EF6;AndroidManifest.xml&#x4E2D;&#x6DFB;&#x52A0;&#x8BFB;&#x5199;SD&#x5361;&#x7684;&#x6743;&#x9650;&#xFF0C;&#x5177;&#x4F53;&#x5982;&#x4E0B;&#x6240;&#x793A;&#xFF1A;</p>
 <p><img src="https://img1.zlogs.net/20/20200614011212.png" alt="image"></p>
+<blockquote>
+<p>&#x8BFB;&#x5199;SD&#x5361;&#x4E2D;&#x7684;&#x6587;&#x4EF6;</p>
+</blockquote>
+<p>/app/src/main/java/com/example/myapplication17/SDCardActivity.java</p>
+<pre><code class="lang-java"><span class="hljs-keyword">package</span> com.example.myapplication17;
+
+<span class="hljs-keyword">import</span> androidx.appcompat.app.AppCompatActivity;
+
+<span class="hljs-keyword">import</span> android.Manifest;
+<span class="hljs-keyword">import</span> android.content.pm.PackageManager;
+<span class="hljs-keyword">import</span> android.os.Bundle;
+<span class="hljs-keyword">import</span> android.os.Environment;
+<span class="hljs-keyword">import</span> android.view.View;
+<span class="hljs-keyword">import</span> android.widget.Button;
+<span class="hljs-keyword">import</span> android.widget.EditText;
+
+<span class="hljs-keyword">import</span> java.io.BufferedReader;
+<span class="hljs-keyword">import</span> java.io.File;
+<span class="hljs-keyword">import</span> java.io.FileInputStream;
+<span class="hljs-keyword">import</span> java.io.InputStreamReader;
+<span class="hljs-keyword">import</span> java.io.RandomAccessFile;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SDCardActivity</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">AppCompatActivity</span>
+        <span class="hljs-keyword">implements</span> <span class="hljs-title">View</span>.<span class="hljs-title">OnClickListener</span> </span>{
+    <span class="hljs-keyword">final</span> <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> REQUEST_CODE_ASK_PERMISSIONS = <span class="hljs-number">123</span>;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">static</span> String SD_FILE_NAME = <span class="hljs-string">&quot;/sdFileName&quot;</span>;
+    <span class="hljs-keyword">private</span> EditText et_write, et_read;
+    <span class="hljs-keyword">private</span> Button start_write, start_read;
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onCreate</span><span class="hljs-params">(Bundle savedInstanceState)</span> </span>{
+        <span class="hljs-keyword">super</span>.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        setTitle(<span class="hljs-string">&quot;&#x8BFB;&#x5199;SD&#x5361;&#x4E2D;&#x7684;&#x6587;&#x4EF6;&#x793A;&#x4F8B;&quot;</span>);
+        et_write = (EditText) findViewById(R.id.et_write);
+        start_write = (Button) findViewById(R.id.btn_write);
+        et_read = (EditText) findViewById(R.id.et_read);
+        start_read = (Button) findViewById(R.id.btn_read);
+        start_write.setOnClickListener(<span class="hljs-keyword">this</span>);
+        start_read.setOnClickListener(<span class="hljs-keyword">this</span>);
+    }
+
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onClick</span><span class="hljs-params">(View v)</span> </span>{
+
+        <span class="hljs-keyword">int</span> hasWriteContactsPermission = checkSelfPermission(Manifest.permission.MOUNT_UNMOUNT_FILESYSTEMS);
+        <span class="hljs-keyword">if</span> (hasWriteContactsPermission != PackageManager.PERMISSION_GRANTED) {
+            requestPermissions(<span class="hljs-keyword">new</span> String[]{
+                    Manifest.permission.MOUNT_UNMOUNT_FILESYSTEMS
+            }, REQUEST_CODE_ASK_PERMISSIONS);
+            <span class="hljs-keyword">return</span>;
+        }
+
+        <span class="hljs-keyword">switch</span> (v.getId()) {
+            <span class="hljs-keyword">case</span> R.id.btn_write:
+
+
+                <span class="hljs-keyword">if</span> (!et_write.getText().toString().isEmpty()) {
+                    write(et_write.getText().toString());
+                    et_write.setText(<span class="hljs-string">&quot;&quot;</span>);
+                }
+                <span class="hljs-keyword">break</span>;
+            <span class="hljs-keyword">case</span> R.id.btn_read:
+                et_read.setText(read());
+                <span class="hljs-keyword">break</span>;
+        }
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">write</span><span class="hljs-params">(String content)</span> </span>{
+        <span class="hljs-comment">//&#x4F7F;&#x7528;RandomAccessFile&#x5411;SD&#x5361;&#x6307;&#x5B9A;&#x6587;&#x4EF6;&#x8FFD;&#x52A0;&#x5185;&#x5BB9;</span>
+        <span class="hljs-comment">//&#x82E5;&#x4F7F;&#x7528;FileOutputStream&#x4F1A;&#x628A;&#x539F;&#x6709;&#x7684;&#x5185;&#x5BB9;&#x6E05;&#x7A7A;&#x518D;&#x5199;&#x5165;&#x6570;&#x636E;</span>
+        <span class="hljs-keyword">try</span> {
+            <span class="hljs-keyword">if</span> (Environment.getExternalStorageState().equals(
+                    Environment.MEDIA_MOUNTED)) {
+                <span class="hljs-comment">//&#x83B7;&#x53D6;SD&#x5361;&#x7684;&#x76EE;&#x5F55;</span>
+                File sdCardDir =
+                        Environment.getExternalStorageDirectory();
+                File targetFile = <span class="hljs-keyword">new</span> File(sdCardDir.getCanonicalPath()
+                        + SD_FILE_NAME);
+                <span class="hljs-comment">//&#x4EE5;&#x6307;&#x5B9A;&#x6587;&#x4EF6;&#x521B;&#x5EFA;RandomAccessFile&#x5BF9;&#x8C61;</span>
+                RandomAccessFile raf =
+                        <span class="hljs-keyword">new</span> RandomAccessFile(targetFile, <span class="hljs-string">&quot;rw&quot;</span>);
+                <span class="hljs-comment">//&#x5C06;&#x6587;&#x4EF6;&#x8BB0;&#x5F55;&#x6307;&#x9488;&#x79FB;&#x5230;&#x6700;&#x540E;</span>
+                raf.seek(targetFile.length());
+                <span class="hljs-comment">//&#x8F93;&#x51FA;&#x6587;&#x4EF6;&#x5185;&#x5BB9;</span>
+                raf.write(content.getBytes());
+                <span class="hljs-comment">//&#x5173;&#x95ED;RandomAccessFile</span>
+                raf.close();
+            }
+        } <span class="hljs-keyword">catch</span> (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">read</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-comment">//&#x8BFB;&#x53D6;SD&#x5361;&#x6307;&#x5B9A;&#x6587;&#x4EF6;&#x5185;&#x5BB9;</span>
+        <span class="hljs-keyword">try</span> {
+            <span class="hljs-keyword">if</span> (Environment.getExternalStorageState().equals(
+                    Environment.MEDIA_MOUNTED)) {
+                <span class="hljs-comment">//&#x83B7;&#x53D6;SD&#x5361;&#x5BF9;&#x5E94;&#x7684;&#x5B58;&#x50A8;&#x76EE;&#x5F55;</span>
+                File sdCardDir =
+                        Environment.getExternalStorageDirectory();
+                <span class="hljs-comment">//&#x83B7;&#x53D6;&#x6307;&#x5B9A;&#x6587;&#x4EF6;&#x5BF9;&#x5E94;&#x7684;&#x8F93;&#x5165;&#x6D41;</span>
+                FileInputStream fis = <span class="hljs-keyword">new</span> FileInputStream(
+                        sdCardDir.getCanonicalPath() + SD_FILE_NAME);
+                <span class="hljs-comment">//&#x5C06;&#x6307;&#x5B9A;&#x8F93;&#x5165;&#x6D41;&#x5305;&#x88C5;&#x6210;BufferedReader</span>
+                BufferedReader br = <span class="hljs-keyword">new</span> BufferedReader(
+                        <span class="hljs-keyword">new</span> InputStreamReader(fis));
+                StringBuilder sb = <span class="hljs-keyword">new</span> StringBuilder(<span class="hljs-string">&quot;&quot;</span>);
+                String line = <span class="hljs-keyword">null</span>;
+                <span class="hljs-comment">//&#x5FAA;&#x73AF;&#x8BFB;&#x53D6;&#x6587;&#x4EF6;&#x5185;&#x5BB9;</span>
+                <span class="hljs-keyword">while</span> ((line = br.readLine()) != <span class="hljs-keyword">null</span>) {
+                    sb.append(line);
+                }
+                br.close();
+                <span class="hljs-keyword">return</span> sb.toString();
+            }
+        } <span class="hljs-keyword">catch</span> (Exception e) {
+            e.printStackTrace();
+        }
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;
+    }
+}
+</code></pre>
+<p>/app/src/main/res/layout/activity_main.xml</p>
+<pre><code class="lang-xml"><span class="php"><span class="hljs-meta">&lt;?</span>xml version=<span class="hljs-string">&quot;1.0&quot;</span> encoding=<span class="hljs-string">&quot;utf-8&quot;</span><span class="hljs-meta">?&gt;</span></span>
+<span class="hljs-tag">&lt;<span class="hljs-name">LinearLayout</span> <span class="hljs-attr">xmlns:android</span>=<span class="hljs-string">&quot;http://schemas.android.com/apk/res/android&quot;</span>
+    <span class="hljs-attr">xmlns:app</span>=<span class="hljs-string">&quot;http://schemas.android.com/apk/res-auto&quot;</span>
+    <span class="hljs-attr">xmlns:tools</span>=<span class="hljs-string">&quot;http://schemas.android.com/tools&quot;</span>
+    <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">&quot;match_parent&quot;</span>
+    <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">&quot;match_parent&quot;</span>
+    <span class="hljs-attr">android:orientation</span>=<span class="hljs-string">&quot;vertical&quot;</span>
+    <span class="hljs-attr">tools:context</span>=<span class="hljs-string">&quot;.SDCardActivity&quot;</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">EditText</span>
+        <span class="hljs-attr">android:id</span>=<span class="hljs-string">&quot;@+id/et_write&quot;</span>
+        <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">&quot;wrap_content&quot;</span>
+        <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">&quot;wrap_content&quot;</span> /&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">Button</span>
+        <span class="hljs-attr">android:id</span>=<span class="hljs-string">&quot;@+id/btn_write&quot;</span>
+        <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">&quot;wrap_content&quot;</span>
+        <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">&quot;wrap_content&quot;</span>
+        <span class="hljs-attr">android:text</span>=<span class="hljs-string">&quot;&#x5199;&#x5165;&#x6570;&#x636E;&quot;</span> /&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">EditText</span>
+        <span class="hljs-attr">android:id</span>=<span class="hljs-string">&quot;@+id/et_read&quot;</span>
+        <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">&quot;wrap_content&quot;</span>
+        <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">&quot;wrap_content&quot;</span> /&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">Button</span>
+        <span class="hljs-attr">android:id</span>=<span class="hljs-string">&quot;@+id/btn_read&quot;</span>
+        <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">&quot;wrap_content&quot;</span>
+        <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">&quot;wrap_content&quot;</span>
+        <span class="hljs-attr">android:text</span>=<span class="hljs-string">&quot;&#x8BFB;&#x53D6;&#x6570;&#x636E;&quot;</span> /&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">LinearLayout</span>&gt;</span>
+</code></pre>
+<p>/app/src/main/AndroidManifest.xml</p>
+<pre><code class="lang-xml"><span class="php"><span class="hljs-meta">&lt;?</span>xml version=<span class="hljs-string">&quot;1.0&quot;</span> encoding=<span class="hljs-string">&quot;utf-8&quot;</span><span class="hljs-meta">?&gt;</span></span>
+<span class="hljs-tag">&lt;<span class="hljs-name">manifest</span> <span class="hljs-attr">xmlns:android</span>=<span class="hljs-string">&quot;http://schemas.android.com/apk/res/android&quot;</span>
+    <span class="hljs-attr">package</span>=<span class="hljs-string">&quot;com.example.myapplication17&quot;</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">uses-permission</span> <span class="hljs-attr">android:name</span>=<span class="hljs-string">&quot;android.permission.MOUNT_UNMOUNT_FILESYSTEMS&quot;</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">uses-permission</span> <span class="hljs-attr">android:name</span>=<span class="hljs-string">&quot;android.permission.WRITE_EXTERNAL_STORAGE&quot;</span> /&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">application</span>
+        <span class="hljs-attr">android:allowBackup</span>=<span class="hljs-string">&quot;true&quot;</span>
+        <span class="hljs-attr">android:icon</span>=<span class="hljs-string">&quot;@mipmap/ic_launcher&quot;</span>
+        <span class="hljs-attr">android:label</span>=<span class="hljs-string">&quot;@string/app_name&quot;</span>
+        <span class="hljs-attr">android:roundIcon</span>=<span class="hljs-string">&quot;@mipmap/ic_launcher_round&quot;</span>
+        <span class="hljs-attr">android:supportsRtl</span>=<span class="hljs-string">&quot;true&quot;</span>
+        <span class="hljs-attr">android:theme</span>=<span class="hljs-string">&quot;@style/AppTheme&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">activity</span> <span class="hljs-attr">android:name</span>=<span class="hljs-string">&quot;.SDCardActivity&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">intent-filter</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">action</span> <span class="hljs-attr">android:name</span>=<span class="hljs-string">&quot;android.intent.action.MAIN&quot;</span> /&gt;</span>
+
+                <span class="hljs-tag">&lt;<span class="hljs-name">category</span> <span class="hljs-attr">android:name</span>=<span class="hljs-string">&quot;android.intent.category.LAUNCHER&quot;</span> /&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">intent-filter</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">activity</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">application</span>&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">manifest</span>&gt;</span>
+</code></pre>
 <div id="gitalk-container"></div>
                                 
                                 </section>
@@ -486,7 +674,7 @@ FileOutputStream openFileOutput(String name, int mode)&#xFF1A;&#x6253;&#x5F00;&#
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"文件","level":"1.6.3","depth":2,"next":{"title":"数据库","level":"1.6.4","depth":2,"path":"page/1017.md","ref":"page/1017.md","articles":[]},"previous":{"title":"图形图像","level":"1.6.2","depth":2,"path":"page/1013.md","ref":"page/1013.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","-sharing","theme-simple@git+https://github.com/plugins-zander/gitbook-plugin-theme-simple.git","search-pro@git+https://github.com/plugins-zander/gitbook-plugin-search-pro.git","katex@git+https://github.com/plugins-zander/gitbook-plugin-katex.git","splitter@git+https://github.com/plugins-zander/gitbook-plugin-splitter.git","mygitalk@git+https://github.com/plugins-zander/gitbook-plugin-mygitalk.git","edit-link@git+https://github.com/plugins-zander/gitbook-plugin-edit-link.git","sitemap-general@git+https://github.com/plugins-zander/gitbook-plugin-sitemap-general.git","gtag@git+https://github.com/plugins-zander/gitbook-plugin-gtag.git","chapter-fold@git+https://github.com/plugins-zander/gitbook-plugin-chapter-fold.git","copy-code-button@git+https://github.com/plugins-zander/gitbook-plugin-copy-code-button.git","page-toc@git+https://github.com/plugins-zander/gitbook-plugin-page-toc.git"],"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"},"pluginsConfig":{"chapter-fold":{},"splitter":{},"search-pro":{},"page-toc":{"position":"before-first","selector":".markdown-section h1, .markdown-section h2, .markdown-section h3, .markdown-section h4","showByDefault":true},"sitemap-general":{"prefix":"https://zlogs.net/learn-android/"},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"gtag":{"token":"UA-149127400-1"},"highlight":{},"theme-simple":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"copy-code-button":{},"mygitalk":{"flipMoveOptions":{},"clientID":"364365ceb2659b383d73","number":-1,"perPage":10,"proxy":"https://cors-anywhere.herokuapp.com/https://github.com/login/oauth/access_token","admin":["zanderzhao"],"createIssueManually":false,"distractionFreeMode":false,"repo":"talk","owner":"zanderzhao","enableHotKey":true,"clientSecret":"447ef6648e9dfffe2e2a65c34c8ead1dd4b7af54","pagerDirection":"last","labels":["Gitalk"]},"edit-link":{"label":"EDIT","base":"https://github.com/ZanderZhao/learn-android/edit/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Zander Zhao","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"learn-android","language":"zh-hans","gitbook":"3.2.3","description":"learn-android - Zander's Learn Book"},"file":{"path":"page/1016.md","mtime":"2020-06-13T17:43:32.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-06-13T17:49:20.330Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"文件","level":"1.6.3","depth":2,"next":{"title":"数据库","level":"1.6.4","depth":2,"path":"page/1017.md","ref":"page/1017.md","articles":[]},"previous":{"title":"图形图像","level":"1.6.2","depth":2,"path":"page/1013.md","ref":"page/1013.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","-sharing","theme-simple@git+https://github.com/plugins-zander/gitbook-plugin-theme-simple.git","search-pro@git+https://github.com/plugins-zander/gitbook-plugin-search-pro.git","katex@git+https://github.com/plugins-zander/gitbook-plugin-katex.git","splitter@git+https://github.com/plugins-zander/gitbook-plugin-splitter.git","mygitalk@git+https://github.com/plugins-zander/gitbook-plugin-mygitalk.git","edit-link@git+https://github.com/plugins-zander/gitbook-plugin-edit-link.git","sitemap-general@git+https://github.com/plugins-zander/gitbook-plugin-sitemap-general.git","gtag@git+https://github.com/plugins-zander/gitbook-plugin-gtag.git","chapter-fold@git+https://github.com/plugins-zander/gitbook-plugin-chapter-fold.git","copy-code-button@git+https://github.com/plugins-zander/gitbook-plugin-copy-code-button.git","page-toc@git+https://github.com/plugins-zander/gitbook-plugin-page-toc.git"],"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"},"pluginsConfig":{"chapter-fold":{},"splitter":{},"search-pro":{},"page-toc":{"position":"before-first","selector":".markdown-section h1, .markdown-section h2, .markdown-section h3, .markdown-section h4","showByDefault":true},"sitemap-general":{"prefix":"https://zlogs.net/learn-android/"},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"gtag":{"token":"UA-149127400-1"},"highlight":{},"theme-simple":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"copy-code-button":{},"mygitalk":{"flipMoveOptions":{},"clientID":"364365ceb2659b383d73","number":-1,"perPage":10,"proxy":"https://cors-anywhere.herokuapp.com/https://github.com/login/oauth/access_token","admin":["zanderzhao"],"createIssueManually":false,"distractionFreeMode":false,"repo":"talk","owner":"zanderzhao","enableHotKey":true,"clientSecret":"447ef6648e9dfffe2e2a65c34c8ead1dd4b7af54","pagerDirection":"last","labels":["Gitalk"]},"edit-link":{"label":"EDIT","base":"https://github.com/ZanderZhao/learn-android/edit/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Zander Zhao","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"learn-android","language":"zh-hans","gitbook":"3.2.3","description":"learn-android - Zander's Learn Book"},"file":{"path":"page/1016.md","mtime":"2020-06-14T13:49:48.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-06-14T13:52:38.125Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

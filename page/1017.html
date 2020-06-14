@@ -434,7 +434,7 @@
 <p><img src="https://img1.zlogs.net/20/20200614011436.png" alt="image"></p>
 <p>&#x4E0A;&#x9762;&#x7684;insert&#x3001;update&#x3001;delete&#x3001;query&#x7B49;&#x65B9;&#x6CD5;&#x5B8C;&#x5168;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x6267;&#x884C;SQL&#x8BED;&#x53E5;&#x6765;&#x5B8C;&#x6210;&#xFF0C;&#x9002;&#x7528;&#x4E8E;&#x5BF9;SQL&#x8BED;&#x53E5;&#x4E0D;&#x719F;&#x6089;&#x7684;&#x5F00;&#x53D1;&#x8005;&#x8C03;&#x7528;&#x3002;
 &#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x662F;&#xFF0C;&#x4E0A;&#x9762;&#x7684;query&#x65B9;&#x6CD5;&#x90FD;&#x8FD4;&#x56DE;&#x4E86;&#x4E00;&#x4E2A;Cursor&#x5BF9;&#x8C61;&#xFF0C;Cursor&#x63D0;&#x4F9B;&#x4E86;&#x5982;&#x8868;&#x6240;&#x793A;&#x7684;&#x65B9;&#x6CD5;&#x79FB;&#x52A8;&#x67E5;&#x8BE2;&#x7ED3;&#x679C;&#x7684;&#x8BB0;&#x5F55;&#x6307;&#x9488;&#x3002;</p>
-<p><img src="../home/zander/.config/Typora/typora-user-images/image-20200614011514090.png" alt="image-20200614011514090"></p>
+<p><img src="https://img1.zlogs.net/20/20200614142045.png" alt="image-20200614011514090"></p>
 <p>&#x4E00;&#x65E6;&#x5C06;&#x8BB0;&#x5F55;&#x6307;&#x9488;&#x79FB;&#x52A8;&#x5230;&#x6307;&#x5B9A;&#x884C;&#x540E;&#xFF0C;&#x5C31;&#x53EF;&#x901A;&#x8FC7;&#x8C03;&#x7528;Cursor&#x7684;getXxx()&#x65B9;&#x6CD5;&#x83B7;&#x53D6;&#x8BE5;&#x884C;&#x7684;&#x6307;&#x5B9A;&#x5217;&#x7684;&#x6570;&#x636E;&#x3002;</p>
 <h3 id="&#x521B;&#x5EFA;&#x6570;&#x636E;&#x5E93;&#x548C;&#x8868;">&#x521B;&#x5EFA;&#x6570;&#x636E;&#x5E93;&#x548C;&#x8868;</h3>
 <p>&#x524D;&#x9762;&#x5DF2;&#x7ECF;&#x8BB2;&#x5230;&#xFF0C;&#x4F7F;&#x7528;SQLiteDatabase&#x7684;&#x9759;&#x6001;&#x65B9;&#x6CD5;&#x5373;&#x53EF;&#x6253;&#x5F00;&#x6216;&#x521B;&#x5EFA;&#x6570;&#x636E;&#x5E93;&#xFF0C;&#x4F8B;&#x5982;&#x5982;&#x4E0B;&#x4EE3;&#x7801;&#xFF1A;</p>
@@ -446,36 +446,177 @@
 <p>&#x5728;&#x7A0B;&#x5E8F;&#x4E2D;&#x6267;&#x884C;&#x4E0A;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x5373;&#x53EF;&#x5728;&#x6570;&#x636E;&#x5E93;&#x4E2D;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x6570;&#x636E;&#x8868;&#x3002;</p>
 <h3 id="&#x4F7F;&#x7528;sql&#x8BED;&#x53E5;&#x64CD;&#x4F5C;sqlite&#x6570;&#x636E;&#x5E93;">&#x4F7F;&#x7528;SQL&#x8BED;&#x53E5;&#x64CD;&#x4F5C;SQLite&#x6570;&#x636E;&#x5E93;</h3>
 <p>SQLiteDatabase&#x7684;execSQL&#x65B9;&#x6CD5;&#x53EF;&#x6267;&#x884C;&#x4EFB;&#x610F;SQL&#x8BED;&#x53E5;&#xFF0C;&#x5305;&#x62EC;&#x5E26;&#x5360;&#x4F4D;&#x7B26;&#x7684;SQL&#x8BED;&#x53E5;&#x3002;&#x4F46;&#x7531;&#x4E8E;&#x8BE5;&#x65B9;&#x6CD5;&#x6CA1;&#x6709;&#x8FD4;&#x56DE;&#x503C;&#xFF0C;&#x56E0;&#x6B64;&#x4E00;&#x822C;&#x7528;&#x4E8E;&#x6267;&#x884C;DDL(data definition language)&#x8BED;&#x53E5;&#x6216;DML(data manipulation language)&#x8BED;&#x53E5;&#xFF1B;&#x5982;&#x679C;&#x9700;&#x8981;&#x6267;&#x884C;&#x67FB;&#x8BE2;&#x8BED;&#x53E5;&#xFF0C;&#x5219;&#x53EF;&#x8C03;&#x7528;SQLiteDatabase&#x7684;rawQuery(String sql, String[] selectionArgs)&#x65B9;&#x6CD5;&#x3002;</p>
+<p>/app/src/main/java/com/example/myapplication18/TestActivity.java</p>
+<pre><code class="lang-java"><span class="hljs-keyword">package</span> com.example.myapplication18;
+
+<span class="hljs-keyword">import</span> androidx.appcompat.app.AppCompatActivity;
+
+<span class="hljs-keyword">import</span> android.database.Cursor;
+<span class="hljs-keyword">import</span> android.database.sqlite.SQLiteDatabase;
+<span class="hljs-keyword">import</span> android.database.sqlite.SQLiteException;
+<span class="hljs-keyword">import</span> android.os.Bundle;
+<span class="hljs-keyword">import</span> android.view.View;
+<span class="hljs-keyword">import</span> android.widget.Button;
+<span class="hljs-keyword">import</span> android.widget.CursorAdapter;
+<span class="hljs-keyword">import</span> android.widget.EditText;
+<span class="hljs-keyword">import</span> android.widget.ListView;
+<span class="hljs-keyword">import</span> android.widget.SimpleCursorAdapter;
+
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TestActivity</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">AppCompatActivity</span>
+        <span class="hljs-keyword">implements</span> <span class="hljs-title">View</span>.<span class="hljs-title">OnClickListener</span> </span>{
+    <span class="hljs-keyword">private</span> Button doInsert;
+    <span class="hljs-keyword">private</span> ListView lv;
+    <span class="hljs-keyword">private</span> EditText title, content;
+    <span class="hljs-keyword">private</span> SQLiteDatabase db;
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onCreate</span><span class="hljs-params">(Bundle savedInstanceState)</span> </span>{
+        <span class="hljs-keyword">super</span>.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        setTitle(<span class="hljs-string">&quot;SQL&#x8BED;&#x53E5;&#x64CD;&#x4F5C;&#x6570;&#x636E;&#x5E93;&quot;</span>);
+        <span class="hljs-comment">//&#x521B;&#x5EFA;&#x6216;&#x6253;&#x5F00;&#x8BE5;&#x6570;&#x636E;</span>
+        db = SQLiteDatabase.openOrCreateDatabase(
+                <span class="hljs-keyword">this</span>.getFilesDir().toString() + <span class="hljs-string">&quot;/my.db3&quot;</span>, <span class="hljs-keyword">null</span>);
+        doInsert = (Button) findViewById(R.id.btn_insert);
+        lv = (ListView) findViewById(R.id.list_view);
+        title = (EditText) findViewById(R.id.et_title);
+        content = (EditText) findViewById(R.id.et_content);
+        doInsert.setOnClickListener(<span class="hljs-keyword">this</span>);
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onClick</span><span class="hljs-params">(View v)</span> </span>{
+        <span class="hljs-keyword">switch</span> (v.getId()) {
+            <span class="hljs-keyword">case</span> R.id.btn_insert:
+                <span class="hljs-keyword">try</span> {
+                    insertData(db, title.getText().toString(),
+                            content.getText().toString());
+                    Cursor cursor = db.rawQuery(<span class="hljs-string">&quot;select * from news_inf&quot;</span>,
+                            <span class="hljs-keyword">null</span>);
+                    inflateList(cursor);
+                } <span class="hljs-keyword">catch</span> (SQLiteException se) {
+                    <span class="hljs-comment">//&#x6267;&#x884C;DDL&#x521B;&#x5EFA;&#x6570;&#x636E;&#x8868;</span>
+                    db.execSQL(<span class="hljs-string">&quot;create table news_inf(_id integer&quot;</span>
+                            + <span class="hljs-string">&quot; primary key autoincrement,&quot;</span>
+                            + <span class="hljs-string">&quot; news_title varchar(50),&quot;</span>
+                            + <span class="hljs-string">&quot; news_content varchar(50))&quot;</span>);
+                    <span class="hljs-comment">//&#x6267;&#x884C;insert&#x8BED;&#x53E5;&#x63D2;&#x5165;&#x6570;&#x636E;</span>
+                    insertData(db, title.getText().toString(),
+                            content.getText().toString());
+                    <span class="hljs-comment">//&#x6267;&#x884C;&#x67E5;&#x8BE2;</span>
+                    Cursor cursor = db.rawQuery(<span class="hljs-string">&quot;select * from news_inf&quot;</span>,
+                            <span class="hljs-keyword">null</span>);
+                    inflateList(cursor);
+                }
+                <span class="hljs-keyword">break</span>;
+        }
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">insertData</span><span class="hljs-params">(SQLiteDatabase db, String title,
+                            String content)</span> </span>{
+        db.execSQL(<span class="hljs-string">&quot;insert into news_inf values(null, ?, ?)&quot;</span>,
+                <span class="hljs-keyword">new</span> String[]{title, content});
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">inflateList</span><span class="hljs-params">(Cursor cursor)</span> </span>{
+        SimpleCursorAdapter adapter = <span class="hljs-keyword">new</span>
+                SimpleCursorAdapter(TestActivity.<span class="hljs-keyword">this</span>,
+                R.layout.line, cursor, <span class="hljs-keyword">new</span> String[]{<span class="hljs-string">&quot;news_title&quot;</span>,
+                <span class="hljs-string">&quot;news_content&quot;</span>},
+                <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[]{R.id.text_left, R.id.text_right},
+                CursorAdapter.FLAG_REGISTER_CONTENT_OBSERVER);
+        <span class="hljs-comment">//&#x663E;&#x793A;&#x6570;&#x636E;</span>
+        lv.setAdapter(adapter);
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onDestroy</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">super</span>.onDestroy();
+        <span class="hljs-comment">//&#x9000;&#x51FA;&#x7A0B;&#x5E8F;&#x65F6;&#x5173;&#x95ED;SQLiteDatabase</span>
+        <span class="hljs-keyword">if</span> (db != <span class="hljs-keyword">null</span> &amp;&amp; db.isOpen()) {
+            db.close();
+        }
+    }
+}
+</code></pre>
+<p>/app/src/main/res/layout/activity_main.xml</p>
+<pre><code class="lang-xml"><span class="php"><span class="hljs-meta">&lt;?</span>xml version=<span class="hljs-string">&quot;1.0&quot;</span> encoding=<span class="hljs-string">&quot;utf-8&quot;</span><span class="hljs-meta">?&gt;</span></span>
+<span class="hljs-tag">&lt;<span class="hljs-name">LinearLayout</span> <span class="hljs-attr">xmlns:android</span>=<span class="hljs-string">&quot;http://schemas.android.com/apk/res/android&quot;</span>
+    <span class="hljs-attr">xmlns:app</span>=<span class="hljs-string">&quot;http://schemas.android.com/apk/res-auto&quot;</span>
+    <span class="hljs-attr">xmlns:tools</span>=<span class="hljs-string">&quot;http://schemas.android.com/tools&quot;</span>
+    <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">&quot;match_parent&quot;</span>
+    <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">&quot;match_parent&quot;</span>
+    <span class="hljs-attr">android:layout_margin</span>=<span class="hljs-string">&quot;16dp&quot;</span>
+    <span class="hljs-attr">android:gravity</span>=<span class="hljs-string">&quot;center&quot;</span>
+    <span class="hljs-attr">android:orientation</span>=<span class="hljs-string">&quot;vertical&quot;</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">EditText</span>
+        <span class="hljs-attr">android:id</span>=<span class="hljs-string">&quot;@+id/et_title&quot;</span>
+        <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">&quot;match_parent&quot;</span>
+        <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">&quot;wrap_content&quot;</span> /&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">EditText</span>
+        <span class="hljs-attr">android:id</span>=<span class="hljs-string">&quot;@+id/et_content&quot;</span>
+        <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">&quot;match_parent&quot;</span>
+        <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">&quot;wrap_content&quot;</span> /&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">Button</span>
+        <span class="hljs-attr">android:id</span>=<span class="hljs-string">&quot;@+id/btn_insert&quot;</span>
+        <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">&quot;match_parent&quot;</span>
+        <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">&quot;wrap_content&quot;</span>
+        <span class="hljs-attr">android:text</span>=<span class="hljs-string">&quot;&#x63D2;&#x5165;&#x6570;&#x636E;&quot;</span>
+        <span class="hljs-attr">android:textSize</span>=<span class="hljs-string">&quot;18sp&quot;</span> /&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">ListView</span>
+        <span class="hljs-attr">android:id</span>=<span class="hljs-string">&quot;@+id/list_view&quot;</span>
+        <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">&quot;match_parent&quot;</span>
+        <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">&quot;wrap_content&quot;</span> /&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">LinearLayout</span>&gt;</span>
+</code></pre>
+<p>/app/src/main/res/layout/line.xml</p>
+<pre><code class="lang-xml"><span class="php"><span class="hljs-meta">&lt;?</span>xml version=<span class="hljs-string">&quot;1.0&quot;</span> encoding=<span class="hljs-string">&quot;utf-8&quot;</span><span class="hljs-meta">?&gt;</span></span>
+<span class="hljs-tag">&lt;<span class="hljs-name">LinearLayout</span> <span class="hljs-attr">xmlns:android</span>=<span class="hljs-string">&quot;http://schemas.android.com/apk/res/android&quot;</span>
+    <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">&quot;match_parent&quot;</span>
+    <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">&quot;match_parent&quot;</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">TextView</span>
+        <span class="hljs-attr">android:id</span>=<span class="hljs-string">&quot;@+id/text_left&quot;</span>
+        <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">&quot;0dp&quot;</span>
+        <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">&quot;wrap_content&quot;</span>
+        <span class="hljs-attr">android:layout_weight</span>=<span class="hljs-string">&quot;1&quot;</span> /&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">TextView</span>
+        <span class="hljs-attr">android:id</span>=<span class="hljs-string">&quot;@+id/text_right&quot;</span>
+        <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">&quot;0dp&quot;</span>
+        <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">&quot;wrap_content&quot;</span>
+        <span class="hljs-attr">android:layout_weight</span>=<span class="hljs-string">&quot;1&quot;</span> /&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">LinearLayout</span>&gt;</span>
+</code></pre>
 <h3 id="&#x4F7F;&#x7528;&#x7279;&#x5B9A;&#x65B9;&#x6CD5;&#x64CD;&#x4F5C;sqlite&#x6570;&#x636E;&#x5E93;">&#x4F7F;&#x7528;&#x7279;&#x5B9A;&#x65B9;&#x6CD5;&#x64CD;&#x4F5C;SQLite&#x6570;&#x636E;&#x5E93;</h3>
-<p>&#x8003;&#x8651;&#x5230;&#x53EF;&#x80FD;&#x6709;&#x5F00;&#x53D1;&#x8005;&#x5BF9;SQL&#x8BED;&#x6CD5;&#x4E0D;&#x719F;&#x6089;&#xFF0C;SQLiteDatabase&#x63D0;&#x4F9B;&#x4E86;insert&#x3001;update&#x3001;delete&#x4EE5;&#x53CA;query&#x8BED;&#x53E5;&#x6765;&#x64CD;&#x4F5C;&#x6570;&#x636E;&#x5E93;&#x3002;
-1.&#x4F7F;&#x7528;insert&#x65B9;&#x6CD5;&#x63D2;&#x5165;&#x8BB0;&#x5F55;
-SQLiteDatabase&#x4E2D;&#x7684;insert&#x65B9;&#x6CD5;&#x5305;&#x62EC;3&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x5177;&#x4F53;&#x65B9;&#x6CD5;&#x4E3A;insert(String table, String nullColumnHack, ContentValues values)&#xFF0C;&#x5176;&#x4E2D;table&#x4E3A;&#x63D2;&#x5165;&#x6570;&#x636E;&#x7684;&#x8868;&#x540D;&#xFF0C;nullColumnHack&#x662F;&#x6307;&#x5F3A;&#x884C;&#x63D2;&#x5165;null&#x503C;&#x7684;&#x6570;&#x636E;&#x5217;&#x7684;&#x5217;&#x540D;&#xFF0C;&#x5F53;values&#x53C2;&#x6570;&#x4E3A;null&#x65F6;&#x8BE5;&#x53C2;&#x6570;&#x6709;&#x6548;&#xFF0C;values&#x4EE3;&#x8868;&#x4E00;&#x884C;&#x8BB0;&#x5F55;&#x7684;&#x6570;&#x636E;&#x3002;
+<p>&#x8003;&#x8651;&#x5230;&#x53EF;&#x80FD;&#x6709;&#x5F00;&#x53D1;&#x8005;&#x5BF9;SQL&#x8BED;&#x6CD5;&#x4E0D;&#x719F;&#x6089;&#xFF0C;SQLiteDatabase&#x63D0;&#x4F9B;&#x4E86;insert&#x3001;update&#x3001;delete&#x4EE5;&#x53CA;query&#x8BED;&#x53E5;&#x6765;&#x64CD;&#x4F5C;&#x6570;&#x636E;&#x5E93;&#x3002;</p>
+<h4 id="1&#x4F7F;&#x7528;insert&#x65B9;&#x6CD5;&#x63D2;&#x5165;&#x8BB0;&#x5F55;">1.&#x4F7F;&#x7528;insert&#x65B9;&#x6CD5;&#x63D2;&#x5165;&#x8BB0;&#x5F55;</h4>
+<p>SQLiteDatabase&#x4E2D;&#x7684;insert&#x65B9;&#x6CD5;&#x5305;&#x62EC;3&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x5177;&#x4F53;&#x65B9;&#x6CD5;&#x4E3A;insert(String table, String nullColumnHack, ContentValues values)&#xFF0C;&#x5176;&#x4E2D;table&#x4E3A;&#x63D2;&#x5165;&#x6570;&#x636E;&#x7684;&#x8868;&#x540D;&#xFF0C;nullColumnHack&#x662F;&#x6307;&#x5F3A;&#x884C;&#x63D2;&#x5165;null&#x503C;&#x7684;&#x6570;&#x636E;&#x5217;&#x7684;&#x5217;&#x540D;&#xFF0C;&#x5F53;values&#x53C2;&#x6570;&#x4E3A;null&#x65F6;&#x8BE5;&#x53C2;&#x6570;&#x6709;&#x6548;&#xFF0C;values&#x4EE3;&#x8868;&#x4E00;&#x884C;&#x8BB0;&#x5F55;&#x7684;&#x6570;&#x636E;&#x3002;
 insert()&#x65B9;&#x6CD5;&#x4E2D;&#x7684;&#x7B2C;&#x4E09;&#x4E2A;&#x53C2;&#x6570;values&#x4EE3;&#x8868;&#x63D2;&#x5165;&#x4E00;&#x884C;&#x8BB0;&#x5F55;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x8BE5;&#x53C2;&#x6570;&#x7C7B;&#x578B;&#x4E3A;ContentValues&#xFF0C;ContentValues&#x7C7B;&#x4F3C;&#x4E8E;Map&#xFF0C;&#x63D0;&#x4F9B;&#x4E86;put(String key, Xxx values)&#x65B9;&#x6CD5;&#x7528;&#x4E8E;&#x5B58;&#x5165;&#x6570;&#x636E;&#xFF0C;getAsXxx(String key)&#x65B9;&#x6CD5;&#x7528;&#x4E8E;&#x53D6;&#x51FA;&#x6570;&#x636E;&#x3002;</p>
 <p>&#x5177;&#x4F53;&#x793A;&#x4F8B;&#x4EE3;&#x7801;&#x7247;&#x6BB5;&#x5982;&#x4E0B;&#xFF1A;</p>
 <p><img src="https://img1.zlogs.net/20/20200614011946.png" alt="image"></p>
 <p>&#x4E0D;&#x7BA1;values&#x53C2;&#x6570;&#x662F;&#x5426;&#x5305;&#x542B;&#x6570;&#x636E;&#xFF0C;&#x6267;&#x884C;insert()&#x65B9;&#x6CD5;&#x603B;&#x4F1A;&#x6DFB;&#x52A0;&#x4E00;&#x6761;&#x8BB0;&#x5F55;&#xFF0C;&#x5982;&#x679C;values&#x4E3A;&#x7A7A;&#xFF0C;&#x5219;&#x4F1A;&#x6DFB;&#x52A0;&#x4E00;&#x6761;&#x9664;&#x4E3B;&#x952E;&#x4E4B;&#x5916;&#x5176;&#x4ED6;&#x5B57;&#x6BB5;&#x503C;&#x90FD;&#x4E3A;null&#x7684;&#x8BB0;&#x5F55;&#x3002;
 &#x53E6;&#x5916;&#x8FD8;&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x662F;insert()&#x65B9;&#x6CD5;&#x8FD4;&#x56DE;&#x7C7B;&#x578B;&#x4E3A;long&#x3002;</p>
-<ol>
-<li>&#x4F7F;&#x7528;update&#x65B9;&#x6CD5;&#x66F4;&#x65B0;&#x8BB0;&#x5F55;
-SQLiteDatabase&#x4E2D;&#x7684;update()&#x65B9;&#x6CD5;&#x5305;&#x542B;4&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x5177;&#x4F53;&#x65B9;&#x6CD5;&#x4E3A;update(String table, ContentValues values, String whereClause, String[] whereArgs)&#xFF0C;&#x5176;&#x4E2D;table&#x4E3A;&#x66F4;&#x65B0;&#x6570;&#x636E;&#x7684;&#x8868;&#x540D;&#xFF0C;values&#x4E3A;&#x8981;&#x66F4;&#x65B0;&#x7684;&#x6570;&#x636E;&#xFF0C;whereClause    &#x662F;&#x6307;&#x66F4;&#x65B0;&#x6570;&#x636E;&#x7684;&#x6761;&#x4EF6;&#xFF0C;whereArgs&#x4E3A;whereClause&#x5B50;&#x53E5;&#x4F20;&#x5165;&#x53C2;&#x6570;&#x3002;update()&#x65B9;&#x6CD5;&#x8FD4;&#x56DE;int&#x578B;&#x6570;&#x636E;&#xFF0C;&#x8868;&#x793A;&#x4FEE;&#x6539;&#x6570;&#x636E;&#x7684;&#x6761;&#x6570;&#x3002;
-&#x4FEE;&#x6539;person_inf&#x8868;&#x4E2D;&#x6240;&#x6709;&#x4E3B;&#x952E;&#x5927;&#x4E8E;15&#x7684;&#x4EBA;&#x7684;&#x59D3;&#x540D;&#x548C;&#x5730;&#x5740;&#xFF0C;&#x793A;&#x4F8B;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</li>
-</ol>
+<h4 id="2&#x4F7F;&#x7528;update&#x65B9;&#x6CD5;&#x66F4;&#x65B0;&#x8BB0;&#x5F55;">2.&#x4F7F;&#x7528;update&#x65B9;&#x6CD5;&#x66F4;&#x65B0;&#x8BB0;&#x5F55;</h4>
+<p>SQLiteDatabase&#x4E2D;&#x7684;update()&#x65B9;&#x6CD5;&#x5305;&#x542B;4&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x5177;&#x4F53;&#x65B9;&#x6CD5;&#x4E3A;update(String table, ContentValues values, String whereClause, String[] whereArgs)&#xFF0C;&#x5176;&#x4E2D;table&#x4E3A;&#x66F4;&#x65B0;&#x6570;&#x636E;&#x7684;&#x8868;&#x540D;&#xFF0C;values&#x4E3A;&#x8981;&#x66F4;&#x65B0;&#x7684;&#x6570;&#x636E;&#xFF0C;whereClause    &#x662F;&#x6307;&#x66F4;&#x65B0;&#x6570;&#x636E;&#x7684;&#x6761;&#x4EF6;&#xFF0C;whereArgs&#x4E3A;whereClause&#x5B50;&#x53E5;&#x4F20;&#x5165;&#x53C2;&#x6570;&#x3002;update()&#x65B9;&#x6CD5;&#x8FD4;&#x56DE;int&#x578B;&#x6570;&#x636E;&#xFF0C;&#x8868;&#x793A;&#x4FEE;&#x6539;&#x6570;&#x636E;&#x7684;&#x6761;&#x6570;&#x3002;
+&#x4FEE;&#x6539;person_inf&#x8868;&#x4E2D;&#x6240;&#x6709;&#x4E3B;&#x952E;&#x5927;&#x4E8E;15&#x7684;&#x4EBA;&#x7684;&#x59D3;&#x540D;&#x548C;&#x5730;&#x5740;&#xFF0C;&#x793A;&#x4F8B;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
 <p><img src="https://img1.zlogs.net/20/20200614012052.png" alt="image"></p>
 <p>&#x4E0A;&#x9762;&#x793A;&#x4F8B;&#x4EE3;&#x7801;&#x53EF;&#x66F4;&#x76F4;&#x89C2;&#x7684;&#x770B;&#x51FA;&#xFF0C;&#x7B2C;&#x56DB;&#x4E2A;&#x53C2;&#x6570;whereArgs&#x7528;&#x4E8E;&#x5411;&#x7B2C;&#x4E09;&#x4E2A;&#x53C2;&#x6570;whereClause&#x4E2D;&#x4F20;&#x5165;&#x53C2;&#x6570;&#x3002;</p>
-<ol>
-<li>&#x4F7F;&#x7528;delete&#x65B9;&#x6CD5;&#x5220;&#x9664;&#x8BB0;&#x5F55;
-SQLiteDatabase&#x4E2D;&#x7684;delete()&#x65B9;&#x6CD5;&#x5305;&#x542B;3&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x5177;&#x4F53;&#x65B9;&#x6CD5;&#x4E3A;delete(String table, String whereClause, String[] whereArgs)&#xFF0C;&#x5176;&#x4E2D;table&#x662F;&#x8981;&#x5220;&#x9664;&#x6570;&#x636E;&#x7684;&#x8868;&#x540D;&#xFF0C;whereClause&#x662F;&#x5220;&#x9664;&#x6570;&#x636E;&#x65F6;&#x7684;&#x8981;&#x6EE1;&#x8DB3;&#x7684;&#x6761;&#x4EF6;&#xFF0C;whereArgs&#x7528;&#x4E8E;&#x4E3A;whereClause&#x4F20;&#x5165;&#x53C2;&#x6570;&#x3002;
-&#x5220;&#x9664;person_inf&#x8868;&#x4E2D;&#x6240;&#x6709;&#x59D3;&#x540D;&#x4EE5;&#x201C;&#x5C0F;&#x201D;&#x5F00;&#x5934;&#x7684;&#x8BB0;&#x5F55;&#xFF0C;&#x793A;&#x4F8B;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</li>
-</ol>
+<h4 id="3&#x4F7F;&#x7528;delete&#x65B9;&#x6CD5;&#x5220;&#x9664;&#x8BB0;&#x5F55;">3.&#x4F7F;&#x7528;delete&#x65B9;&#x6CD5;&#x5220;&#x9664;&#x8BB0;&#x5F55;</h4>
+<p>SQLiteDatabase&#x4E2D;&#x7684;delete()&#x65B9;&#x6CD5;&#x5305;&#x542B;3&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x5177;&#x4F53;&#x65B9;&#x6CD5;&#x4E3A;delete(String table, String whereClause, String[] whereArgs)&#xFF0C;&#x5176;&#x4E2D;table&#x662F;&#x8981;&#x5220;&#x9664;&#x6570;&#x636E;&#x7684;&#x8868;&#x540D;&#xFF0C;whereClause&#x662F;&#x5220;&#x9664;&#x6570;&#x636E;&#x65F6;&#x7684;&#x8981;&#x6EE1;&#x8DB3;&#x7684;&#x6761;&#x4EF6;&#xFF0C;whereArgs&#x7528;&#x4E8E;&#x4E3A;whereClause&#x4F20;&#x5165;&#x53C2;&#x6570;&#x3002;
+&#x5220;&#x9664;person_inf&#x8868;&#x4E2D;&#x6240;&#x6709;&#x59D3;&#x540D;&#x4EE5;&#x201C;&#x5C0F;&#x201D;&#x5F00;&#x5934;&#x7684;&#x8BB0;&#x5F55;&#xFF0C;&#x793A;&#x4F8B;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
 <p><img src="https://img1.zlogs.net/20/20200614012112.png" alt="image"></p>
-<ol>
-<li>&#x4F7F;&#x7528;query&#x65B9;&#x6CD5;&#x67E5;&#x8BE2;&#x8BB0;&#x5F55;
-SQLiteDatabase&#x4E2D;&#x7684;query()&#x65B9;&#x6CD5;&#x5305;&#x542B;9&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x5177;&#x4F53;&#x65B9;&#x6CD5;&#x4E3A;query(boolean distinct, String table, String[] columns, String whereClause, String[] selectionArgs, String groupBy, String having, String orderBy, String limit)&#xFF0C;&#x53C2;&#x6570;&#x8BF4;&#x660E;&#x5982;&#x4E0B;&#x3002;
+<h4 id="4&#x4F7F;&#x7528;query&#x65B9;&#x6CD5;&#x67E5;&#x8BE2;&#x8BB0;&#x5F55;">4.&#x4F7F;&#x7528;query&#x65B9;&#x6CD5;&#x67E5;&#x8BE2;&#x8BB0;&#x5F55;</h4>
+<p>SQLiteDatabase&#x4E2D;&#x7684;query()&#x65B9;&#x6CD5;&#x5305;&#x542B;9&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x5177;&#x4F53;&#x65B9;&#x6CD5;&#x4E3A;query(boolean distinct, String table, String[] columns, String whereClause, String[] selectionArgs, String groupBy, String having, String orderBy, String limit)&#xFF0C;&#x53C2;&#x6570;&#x8BF4;&#x660E;&#x5982;&#x4E0B;&#x3002;
 distinct&#xFF1A;&#x6307;&#x5B9A;&#x662F;&#x5426;&#x53BB;&#x9664;&#x91CD;&#x590D;&#x8BB0;&#x5F55;&#x3002;
 table&#xFF1A;&#x6267;&#x884C;&#x67E5;&#x8BE2;&#x6570;&#x636E;&#x7684;&#x8868;&#x540D;&#x3002;
 columns&#xFF1A;&#x8981;&#x67E5;&#x8BE2;&#x51FA;&#x6765;&#x7684;&#x5217;&#x540D;&#xFF0C;&#x76F8;&#x5F53;&#x4E8E;select&#x8BED;&#x53E5;select&#x5173;&#x952E;&#x5B57;&#x540E;&#x9762;&#x7684;&#x90E8;&#x5206;&#x3002;
-whereClause&#xFF1A;&#x67E5;&#x8BE2;&#x6761;&#x4EF6;&#x5B50;&#x53E5;&#xFF0C;&#x76F8;&#x5F53;&#x4E8E;select&#x8BED;&#x53E5;&#x4E2D;where&#x5173;&#x952E;&#x5B57;&#x540E;&#x9762;&#x7684;&#x90E8;&#x5206;&#xFF0C;&#x5728;&#x6761;&#x4EF6;&#x5B50;&#x53E5;&#x4E2D;&#x5141;&#x8BB8;&#x4F7F;&#x7528;&#x5360;&#x4F4D;&#x7B26;&#x201C;&#xFF1F;&#x201D;&#x3002;</li>
-</ol>
+whereClause&#xFF1A;&#x67E5;&#x8BE2;&#x6761;&#x4EF6;&#x5B50;&#x53E5;&#xFF0C;&#x76F8;&#x5F53;&#x4E8E;select&#x8BED;&#x53E5;&#x4E2D;where&#x5173;&#x952E;&#x5B57;&#x540E;&#x9762;&#x7684;&#x90E8;&#x5206;&#xFF0C;&#x5728;&#x6761;&#x4EF6;&#x5B50;&#x53E5;&#x4E2D;&#x5141;&#x8BB8;&#x4F7F;&#x7528;&#x5360;&#x4F4D;&#x7B26;&#x201C;&#xFF1F;&#x201D;&#x3002;</p>
 <p>selectionArgs&#xFF1A;&#x7528;&#x4E8E;&#x4E3A;whereClause&#x5B50;&#x53E5;&#x4E2D;&#x7684;&#x5360;&#x4F4D;&#x7B26;&#x4F20;&#x5165;&#x53C2;&#x6570;&#x503C;&#xFF0C;&#x503C;&#x5728;&#x6570;&#x7EC4;&#x4E2D;&#x7684;&#x4F4D;&#x7F6E;&#x4E0E;&#x5360;&#x4F4D;&#x7B26;&#x5728;&#x8BED;&#x53E5;&#x4E2D;&#x7684;&#x4F4D;&#x7F6E;&#x5FC5;&#x987B;&#x4E00;&#x81F4;&#xFF1B;&#x5426;&#x5219;&#x4F1A;&#x51FA;&#x73B0;&#x5F02;&#x5E38;&#x3002;
 groupBy&#xFF1A;&#x7528;&#x4E8E;&#x63A7;&#x5236;&#x5206;&#x7EC4;&#xFF0C;&#x76F8;&#x5F53;&#x4E8E;select&#x8BED;&#x53E5;group by&#x5173;&#x952E;&#x5B57;&#x540E;&#x9762;&#x7684;&#x90E8;&#x5206;&#x3002;
 having&#xFF1A;&#x7528;&#x4E8E;&#x5BF9;&#x5206;&#x7EC4;&#x8FDB;&#x884C;&#x8FC7;&#x6EE4;&#xFF0C;&#x76F8;&#x5F53;&#x4E8E;select&#x8BED;&#x53E5;having&#x5173;&#x952E;&#x5B57;&#x540E;&#x9762;&#x7684;&#x90E8;&#x5206;&#x3002;
@@ -499,6 +640,147 @@ inTransaction()&#xFF1A;&#x5982;&#x679C;&#x5F53;&#x524D;&#x4E0A;&#x4E0B;&#x6587;&
 SQLiteOpenHelper&#x5E38;&#x7528;&#x65B9;&#x6CD5;&#x5982;&#x8868;&#x6240;&#x793A;&#x3002;</p>
 <p><img src="https://img1.zlogs.net/20/20200614012313.png" alt="image"></p>
 <p>MySQLiteHelper&#x5DE5;&#x5177;&#x7C7B;&#x7684;&#x4F5C;&#x7528;&#x4E3B;&#x8981;&#x662F;&#x7BA1;&#x7406;&#x6570;&#x636E;&#x5E93;&#x7684;&#x521D;&#x59CB;&#x5316;&#xFF0C;&#x5E76;&#x5141;&#x8BB8;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x901A;&#x8FC7;&#x8BE5;&#x5DE5;&#x5177;&#x7C7B;&#x83B7;&#x53D6;SQLiteOpenHelper&#x5BF9;&#x8C61;&#x3002;</p>
+<p>/app/src/main/java/com/example/myapplication19/MainActivity.java</p>
+<pre><code class="lang-java"><span class="hljs-keyword">package</span> com.example.myapplication19;
+
+<span class="hljs-keyword">import</span> androidx.appcompat.app.AppCompatActivity;
+
+<span class="hljs-keyword">import</span> android.content.ContentValues;
+<span class="hljs-keyword">import</span> android.content.Context;
+<span class="hljs-keyword">import</span> android.database.Cursor;
+<span class="hljs-keyword">import</span> android.database.sqlite.SQLiteDatabase;
+<span class="hljs-keyword">import</span> android.database.sqlite.SQLiteOpenHelper;
+<span class="hljs-keyword">import</span> android.graphics.Color;
+<span class="hljs-keyword">import</span> android.os.Bundle;
+<span class="hljs-keyword">import</span> android.widget.TextView;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MainActivity</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">AppCompatActivity</span> </span>{
+    <span class="hljs-keyword">private</span> TextView tvResult;
+    <span class="hljs-keyword">private</span> MySQLiteHelper myHelper;
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onCreate</span><span class="hljs-params">(Bundle savedInstanceState)</span> </span>{
+        <span class="hljs-keyword">super</span>.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        setTitle(<span class="hljs-string">&quot;PathEffect&#x7ED8;&#x56FE;&#x793A;&#x4F8B;&quot;</span>);
+        tvResult = (TextView) findViewById(R.id.tv_result);
+        <span class="hljs-comment">//&#x521B;&#x5EFA;MySQLiteOpenHelper&#x8F85;&#x52A9;&#x7C7B;&#x5BF9;&#x8C61;</span>
+        myHelper = <span class="hljs-keyword">new</span> MySQLiteHelper(<span class="hljs-keyword">this</span>, <span class="hljs-string">&quot;my.db&quot;</span>, <span class="hljs-keyword">null</span>, <span class="hljs-number">1</span>);
+        <span class="hljs-comment">//&#x5411;&#x6570;&#x636E;&#x5E93;&#x4E2D;&#x63D2;&#x5165;&#x548C;&#x66F4;&#x65B0;&#x6570;&#x636E;</span>
+        insertAndUpdateData(myHelper);
+        <span class="hljs-comment">//&#x67E5;&#x8BE2;&#x6570;&#x636E;</span>
+        String result = queryData(myHelper);
+        tvResult.setTextColor(Color.RED);
+        tvResult.setTextSize(<span class="hljs-number">20.0f</span>);
+        tvResult.setText(<span class="hljs-string">&quot;&#x540D;&#x5B57;\t&#x7B49;&#x7EA7;\n&quot;</span> + result);
+    }
+
+    <span class="hljs-comment">//&#x5411;&#x6570;&#x636E;&#x5E93;&#x4E2D;&#x63D2;&#x5165;&#x548C;&#x66F4;&#x65B0;&#x6570;&#x636E;</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">insertAndUpdateData</span><span class="hljs-params">(MySQLiteHelper myHelper)</span> </span>{
+        <span class="hljs-comment">//&#x83B7;&#x53D6;&#x6570;&#x636E;&#x5E93;&#x5BF9;&#x8C61;</span>
+        SQLiteDatabase db = myHelper.getWritableDatabase();
+        <span class="hljs-comment">//&#x4F7F;&#x7528;execSQL&#x65B9;&#x6CD5;&#x5411;&#x8868;&#x4E2D;&#x63D2;&#x5165;&#x6570;&#x636E;</span>
+        db.execSQL(<span class="hljs-string">&quot;insert into hero_info(name,level) values(&apos;&#x5C0F;&#x5343;&apos;,0)&quot;</span>);
+        <span class="hljs-comment">//&#x4F7F;&#x7528;insert&#x65B9;&#x6CD5;&#x5411;&#x8868;&#x4E2D;&#x63D2;&#x5165;&#x6570;&#x636E;</span>
+        ContentValues values = <span class="hljs-keyword">new</span> ContentValues();
+        values.put(<span class="hljs-string">&quot;name&quot;</span>, <span class="hljs-string">&quot;&#x5C0F;&#x950B;&quot;</span>);
+        values.put(<span class="hljs-string">&quot;level&quot;</span>, <span class="hljs-number">5</span>);
+        <span class="hljs-comment">//&#x8C03;&#x7528;&#x65B9;&#x6CD5;&#x63D2;&#x5165;&#x6570;&#x636E;</span>
+        db.insert(<span class="hljs-string">&quot;hero_info&quot;</span>, <span class="hljs-string">&quot;id&quot;</span>, values);
+        <span class="hljs-comment">//&#x4F7F;&#x7528;update&#x65B9;&#x6CD5;&#x66F4;&#x65B0;&#x8868;&#x4E2D;&#x7684;&#x6570;&#x636E;</span>
+        <span class="hljs-comment">//&#x6E05;&#x7A7A;ContentValues&#x5BF9;&#x8C61;</span>
+        values.clear();
+        values.put(<span class="hljs-string">&quot;name&quot;</span>, <span class="hljs-string">&quot;&#x5C0F;&#x950B;&quot;</span>);
+        values.put(<span class="hljs-string">&quot;level&quot;</span>, <span class="hljs-number">10</span>);
+        <span class="hljs-comment">//&#x66F4;&#x65B0;&#x5C0F;&#x950B;&#x7684;level &#x4E3A;10</span>
+        db.update(<span class="hljs-string">&quot;hero_info&quot;</span>, values, <span class="hljs-string">&quot;level = 5&quot;</span>, <span class="hljs-keyword">null</span>);
+        <span class="hljs-comment">//&#x5173;&#x95ED;SQLiteDatabase&#x5BF9;&#x8C61;</span>
+        db.close();
+    }
+
+    <span class="hljs-comment">//&#x4ECE;&#x6570;&#x636E;&#x5E93;&#x4E2D;&#x67E5;&#x8BE2;&#x6570;&#x636E;</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">queryData</span><span class="hljs-params">(MySQLiteHelper myHelper)</span> </span>{
+        String result = <span class="hljs-string">&quot;&quot;</span>;
+        <span class="hljs-comment">//&#x83B7;&#x5F97;&#x6570;&#x636E;&#x5E93;&#x5BF9;&#x8C61;</span>
+        SQLiteDatabase db = myHelper.getReadableDatabase();
+        <span class="hljs-comment">//&#x67E5;&#x8BE2;&#x8868;&#x4E2D;&#x7684;&#x6570;&#x636E;</span>
+        Cursor cursor = db.query(<span class="hljs-string">&quot;hero_info&quot;</span>, <span class="hljs-keyword">null</span>, <span class="hljs-keyword">null</span>, <span class="hljs-keyword">null</span>, <span class="hljs-keyword">null</span>,
+                <span class="hljs-keyword">null</span>, <span class="hljs-string">&quot;id asc&quot;</span>);
+        <span class="hljs-comment">//&#x83B7;&#x53D6;name&#x5217;&#x7684;&#x7D22;&#x5F15;</span>
+        <span class="hljs-keyword">int</span> nameIndex = cursor.getColumnIndex(<span class="hljs-string">&quot;name&quot;</span>);
+        <span class="hljs-comment">//&#x83B7;&#x53D6;level&#x5217;&#x7684;&#x7D22;&#x5F15;</span>
+        <span class="hljs-keyword">int</span> levelIndex = cursor.getColumnIndex(<span class="hljs-string">&quot;level&quot;</span>);
+        <span class="hljs-keyword">for</span> (cursor.moveToFirst(); !(cursor.isAfterLast());
+             cursor.moveToNext()) {
+            result = result + cursor.getString(nameIndex) + <span class="hljs-string">&quot;\t\t&quot;</span>;
+            result = result + cursor.getInt(levelIndex) + <span class="hljs-string">&quot;       \n&quot;</span>;
+        }
+        cursor.close();<span class="hljs-comment">//&#x5173;&#x95ED;&#x7ED3;&#x679C;&#x96C6;</span>
+        db.close();<span class="hljs-comment">//&#x5173;&#x95ED;&#x6570;&#x636E;&#x5E93;&#x5BF9;&#x8C61;</span>
+        <span class="hljs-keyword">return</span> result;
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onDestroy</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">super</span>.onDestroy();
+        <span class="hljs-keyword">if</span> (myHelper != <span class="hljs-keyword">null</span>) {
+            myHelper.close();
+        }
+    }
+}
+</code></pre>
+<p>/app/src/main/java/com/example/myapplication19/MySQLiteHelper.java</p>
+<pre><code class="lang-java"><span class="hljs-keyword">package</span> com.example.myapplication19;
+
+<span class="hljs-keyword">import</span> android.content.Context;
+<span class="hljs-keyword">import</span> android.database.sqlite.SQLiteDatabase;
+<span class="hljs-keyword">import</span> android.database.sqlite.SQLiteOpenHelper;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MySQLiteHelper</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">SQLiteOpenHelper</span> </span>{
+    <span class="hljs-comment">//&#x8C03;&#x7528;&#x7236;&#x7C7B;&#x6784;&#x9020;&#x5668;</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">MySQLiteHelper</span><span class="hljs-params">(Context context, String name,
+                          SQLiteDatabase.CursorFactory factory, <span class="hljs-keyword">int</span> version)</span> </span>{
+        <span class="hljs-keyword">super</span>(context, name, factory, version);
+    }
+
+    <span class="hljs-comment">/**
+     * &#x5F53;&#x6570;&#x636E;&#x5E93;&#x9996;&#x6B21;&#x521B;&#x5EFA;&#x65F6;&#x6267;&#x884C;&#x8BE5;&#x65B9;&#x6CD5;&#xFF0C;&#x4E00;&#x822C;&#x5C06;&#x521B;&#x5EFA;&#x8868;&#x7B49;&#x521D;&#x59CB;&#x5316;&#x64CD;&#x4F5C;&#x653E;&#x5728;&#x8BE5;&#x65B9;&#x6CD5;&#x4E2D;&#x6267;&#x884C;.
+     * &#x91CD;&#x5199;onCreate&#x65B9;&#x6CD5;&#xFF0C;&#x8C03;&#x7528;execSQL&#x65B9;&#x6CD5;&#x521B;&#x5EFA;&#x8868;
+     */</span>
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onCreate</span><span class="hljs-params">(SQLiteDatabase db)</span> </span>{
+        db.execSQL(<span class="hljs-string">&quot;create table if not exists hero_info(&quot;</span>
+                + <span class="hljs-string">&quot;id integer primary key,&quot;</span>
+                + <span class="hljs-string">&quot;name varchar,&quot;</span>
+                + <span class="hljs-string">&quot;level integer)&quot;</span>);
+    }
+
+    <span class="hljs-comment">//&#x5F53;&#x6253;&#x5F00;&#x6570;&#x636E;&#x5E93;&#x65F6;&#x4F20;&#x5165;&#x7684;&#x7248;&#x672C;&#x53F7;&#x4E0E;&#x5F53;&#x524D;&#x7684;&#x7248;&#x672C;&#x53F7;&#x4E0D;&#x540C;&#x65F6;&#x4F1A;&#x8C03;&#x7528;&#x8BE5;&#x65B9;&#x6CD5;</span>
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onUpgrade</span><span class="hljs-params">(SQLiteDatabase db, <span class="hljs-keyword">int</span> oldVersion,
+                          <span class="hljs-keyword">int</span> newVersion)</span> </span>{
+    }
+}
+</code></pre>
+<p>/app/src/main/res/layout/activity_main.xml</p>
+<pre><code class="lang-xml"><span class="php"><span class="hljs-meta">&lt;?</span>xml version=<span class="hljs-string">&quot;1.0&quot;</span> encoding=<span class="hljs-string">&quot;utf-8&quot;</span><span class="hljs-meta">?&gt;</span></span>
+<span class="hljs-tag">&lt;<span class="hljs-name">LinearLayout</span> <span class="hljs-attr">xmlns:android</span>=<span class="hljs-string">&quot;http://schemas.android.com/apk/res/android&quot;</span>
+    <span class="hljs-attr">xmlns:app</span>=<span class="hljs-string">&quot;http://schemas.android.com/apk/res-auto&quot;</span>
+    <span class="hljs-attr">xmlns:tools</span>=<span class="hljs-string">&quot;http://schemas.android.com/tools&quot;</span>
+    <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">&quot;match_parent&quot;</span>
+    <span class="hljs-attr">android:orientation</span>=<span class="hljs-string">&quot;vertical&quot;</span>
+    <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">&quot;match_parent&quot;</span>
+    <span class="hljs-attr">tools:context</span>=<span class="hljs-string">&quot;.MainActivity&quot;</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">TextView</span>
+        <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">&quot;wrap_content&quot;</span>
+        <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">&quot;wrap_content&quot;</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">TextView</span>
+        <span class="hljs-attr">android:id</span>=<span class="hljs-string">&quot;@+id/tv_result&quot;</span>
+        <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">&quot;wrap_content&quot;</span>
+        <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">&quot;wrap_content&quot;</span>/&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">LinearLayout</span>&gt;</span>
+</code></pre>
 <div id="gitalk-container"></div>
                                 
                                 </section>
@@ -542,7 +824,7 @@ SQLiteOpenHelper&#x5E38;&#x7528;&#x65B9;&#x6CD5;&#x5982;&#x8868;&#x6240;&#x793A;
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"数据库","level":"1.6.4","depth":2,"next":{"title":"其他","level":"1.6.5","depth":2,"path":"page/1020.md","ref":"page/1020.md","articles":[]},"previous":{"title":"文件","level":"1.6.3","depth":2,"path":"page/1016.md","ref":"page/1016.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","-sharing","theme-simple@git+https://github.com/plugins-zander/gitbook-plugin-theme-simple.git","search-pro@git+https://github.com/plugins-zander/gitbook-plugin-search-pro.git","katex@git+https://github.com/plugins-zander/gitbook-plugin-katex.git","splitter@git+https://github.com/plugins-zander/gitbook-plugin-splitter.git","mygitalk@git+https://github.com/plugins-zander/gitbook-plugin-mygitalk.git","edit-link@git+https://github.com/plugins-zander/gitbook-plugin-edit-link.git","sitemap-general@git+https://github.com/plugins-zander/gitbook-plugin-sitemap-general.git","gtag@git+https://github.com/plugins-zander/gitbook-plugin-gtag.git","chapter-fold@git+https://github.com/plugins-zander/gitbook-plugin-chapter-fold.git","copy-code-button@git+https://github.com/plugins-zander/gitbook-plugin-copy-code-button.git","page-toc@git+https://github.com/plugins-zander/gitbook-plugin-page-toc.git"],"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"},"pluginsConfig":{"chapter-fold":{},"splitter":{},"search-pro":{},"page-toc":{"position":"before-first","selector":".markdown-section h1, .markdown-section h2, .markdown-section h3, .markdown-section h4","showByDefault":true},"sitemap-general":{"prefix":"https://zlogs.net/learn-android/"},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"gtag":{"token":"UA-149127400-1"},"highlight":{},"theme-simple":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"copy-code-button":{},"mygitalk":{"flipMoveOptions":{},"clientID":"364365ceb2659b383d73","number":-1,"perPage":10,"proxy":"https://cors-anywhere.herokuapp.com/https://github.com/login/oauth/access_token","admin":["zanderzhao"],"createIssueManually":false,"distractionFreeMode":false,"repo":"talk","owner":"zanderzhao","enableHotKey":true,"clientSecret":"447ef6648e9dfffe2e2a65c34c8ead1dd4b7af54","pagerDirection":"last","labels":["Gitalk"]},"edit-link":{"label":"EDIT","base":"https://github.com/ZanderZhao/learn-android/edit/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Zander Zhao","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"learn-android","language":"zh-hans","gitbook":"3.2.3","description":"learn-android - Zander's Learn Book"},"file":{"path":"page/1017.md","mtime":"2020-06-13T17:43:32.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-06-13T17:49:20.330Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"数据库","level":"1.6.4","depth":2,"next":{"title":"其他","level":"1.6.5","depth":2,"path":"page/1020.md","ref":"page/1020.md","articles":[]},"previous":{"title":"文件","level":"1.6.3","depth":2,"path":"page/1016.md","ref":"page/1016.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","-sharing","theme-simple@git+https://github.com/plugins-zander/gitbook-plugin-theme-simple.git","search-pro@git+https://github.com/plugins-zander/gitbook-plugin-search-pro.git","katex@git+https://github.com/plugins-zander/gitbook-plugin-katex.git","splitter@git+https://github.com/plugins-zander/gitbook-plugin-splitter.git","mygitalk@git+https://github.com/plugins-zander/gitbook-plugin-mygitalk.git","edit-link@git+https://github.com/plugins-zander/gitbook-plugin-edit-link.git","sitemap-general@git+https://github.com/plugins-zander/gitbook-plugin-sitemap-general.git","gtag@git+https://github.com/plugins-zander/gitbook-plugin-gtag.git","chapter-fold@git+https://github.com/plugins-zander/gitbook-plugin-chapter-fold.git","copy-code-button@git+https://github.com/plugins-zander/gitbook-plugin-copy-code-button.git","page-toc@git+https://github.com/plugins-zander/gitbook-plugin-page-toc.git"],"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"},"pluginsConfig":{"chapter-fold":{},"splitter":{},"search-pro":{},"page-toc":{"position":"before-first","selector":".markdown-section h1, .markdown-section h2, .markdown-section h3, .markdown-section h4","showByDefault":true},"sitemap-general":{"prefix":"https://zlogs.net/learn-android/"},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"gtag":{"token":"UA-149127400-1"},"highlight":{},"theme-simple":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"copy-code-button":{},"mygitalk":{"flipMoveOptions":{},"clientID":"364365ceb2659b383d73","number":-1,"perPage":10,"proxy":"https://cors-anywhere.herokuapp.com/https://github.com/login/oauth/access_token","admin":["zanderzhao"],"createIssueManually":false,"distractionFreeMode":false,"repo":"talk","owner":"zanderzhao","enableHotKey":true,"clientSecret":"447ef6648e9dfffe2e2a65c34c8ead1dd4b7af54","pagerDirection":"last","labels":["Gitalk"]},"edit-link":{"label":"EDIT","base":"https://github.com/ZanderZhao/learn-android/edit/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Zander Zhao","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"learn-android","language":"zh-hans","gitbook":"3.2.3","description":"learn-android - Zander's Learn Book"},"file":{"path":"page/1017.md","mtime":"2020-06-14T13:49:48.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-06-14T13:52:38.125Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

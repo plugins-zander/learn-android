@@ -439,6 +439,95 @@ SharedPreferences&#x5E76;&#x6CA1;&#x6709;&#x63D0;&#x4F9B;&#x5199;&#x5165;&#x6570
 <p><img src="https://img1.zlogs.net/20/20200614010449.png" alt="image"></p>
 <p>SharedPreferences&#x6570;&#x636E;&#x662F;&#x4EE5;key-value&#x952E;&#x503C;&#x5BF9;&#x7684;&#x5F62;&#x5F0F;&#x4FDD;&#x5B58;&#x7684;&#x3002;
 SharedPreferences&#x6570;&#x636E;&#x603B;&#x662F;&#x4FDD;&#x5B58;&#x5728;<code>/data/data/&lt;package name&gt;/shared_prefs</code>&#x76EE;&#x5F55;&#x4E0B;&#xFF0C;SharedPreferences&#x6570;&#x636E;&#x603B;&#x662F;&#x4EE5;XML&#x683C;&#x5F0F;&#x4FDD;&#x5B58;&#xFF0C;&#x6839;&#x5143;&#x7D20;&#x662F;<code>&lt;map&#x2026;/&gt;</code>&#x5143;&#x7D20;&#xFF0C;&#x8BE5;&#x5143;&#x7D20;&#x4E2D;&#x6BCF;&#x4E2A;&#x5B50;&#x5143;&#x7D20;&#x4EE3;&#x8868;&#x4E00;&#x4E2A;key-value&#x5BF9;&#xFF0C;&#x5F53;value&#x662F;&#x6574;&#x6570;&#x7C7B;&#x578B;&#x65F6;&#xFF0C;&#x4F7F;&#x7528;<int…>&#x5B50;&#x5143;&#x7D20;&#xFF1B;&#x5F53;value&#x662F;&#x5B57;&#x7B26;&#x4E32;&#x7C7B;&#x578B;&#x65F6;&#xFF0C;&#x4F7F;&#x7528;<code>&lt;string&#x2026;/&gt;</code>&#x5B50;&#x5143;&#x7D20;&#x3002;</int…></p>
+<p>/app/src/main/java/com/example/myapplication15/SPSaveActivity.java</p>
+<pre><code class="lang-java"><span class="hljs-keyword">package</span> com.example.myapplication15;
+
+<span class="hljs-keyword">import</span> android.content.SharedPreferences;
+<span class="hljs-keyword">import</span> android.os.Bundle;
+
+<span class="hljs-keyword">import</span> androidx.appcompat.app.AppCompatActivity;
+<span class="hljs-keyword">import</span> androidx.appcompat.widget.Toolbar;
+
+<span class="hljs-keyword">import</span> android.view.View;
+<span class="hljs-keyword">import</span> android.view.Menu;
+<span class="hljs-keyword">import</span> android.view.MenuItem;
+<span class="hljs-keyword">import</span> android.widget.Button;
+<span class="hljs-keyword">import</span> android.widget.EditText;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SPSaveActivity</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">AppCompatActivity</span>
+        <span class="hljs-keyword">implements</span> <span class="hljs-title">View</span>.<span class="hljs-title">OnClickListener</span> </span>{
+    <span class="hljs-keyword">private</span> EditText write, read;
+    <span class="hljs-keyword">private</span> Button start_write, start_read;
+    <span class="hljs-keyword">private</span> SharedPreferences sp;
+    <span class="hljs-keyword">private</span> SharedPreferences.Editor editor;
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onCreate</span><span class="hljs-params">(Bundle savedInstanceState)</span> </span>{
+        <span class="hljs-keyword">super</span>.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        <span class="hljs-comment">//&#x83B7;&#x53D6;&#x53EA;&#x80FD;&#x88AB;&#x672C;&#x7A0B;&#x5E8F;&#x8BFB;&#x5199;&#x7684;SharedPreferences&#x5BF9;&#x8C61;</span>
+        sp = getSharedPreferences(<span class="hljs-string">&quot;spDemo&quot;</span>, MODE_PRIVATE);
+        editor = sp.edit();
+        write = (EditText) findViewById(R.id.et_write);
+        start_write = (Button) findViewById(R.id.btn_write);
+        read = (EditText) findViewById(R.id.et_read);
+        start_read = (Button) findViewById(R.id.btn_read);
+        start_write.setOnClickListener(<span class="hljs-keyword">this</span>);
+        start_read.setOnClickListener(<span class="hljs-keyword">this</span>);
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onClick</span><span class="hljs-params">(View v)</span> </span>{
+        <span class="hljs-keyword">switch</span> (v.getId()) {
+            <span class="hljs-keyword">case</span> R.id.btn_write:
+                <span class="hljs-comment">//&#x5982;&#x679C;EditText&#x6709;&#x8F93;&#x5165;&#x503C;&#x5C31;&#x5199;&#x5165;SharedPreferences&#x4E2D;</span>
+                <span class="hljs-keyword">if</span> (write.getText().toString() != <span class="hljs-string">&quot;&quot;</span>) {
+                    editor.putString(<span class="hljs-string">&quot;content&quot;</span>, write.getText().toString());
+                    editor.commit();
+                }
+                <span class="hljs-keyword">break</span>;
+            <span class="hljs-keyword">case</span> R.id.btn_read:
+                <span class="hljs-comment">//&#x8BFB;&#x53D6;&#x5199;&#x5165;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x6570;&#x636E;</span>
+                String content = sp.getString(<span class="hljs-string">&quot;content&quot;</span>, <span class="hljs-keyword">null</span>);
+                read.setText(content);
+                <span class="hljs-keyword">break</span>;
+        }
+    }
+}
+</code></pre>
+<p>/app/src/main/res/layout/activity_main.xml</p>
+<pre><code class="lang-xml"><span class="php"><span class="hljs-meta">&lt;?</span>xml version=<span class="hljs-string">&quot;1.0&quot;</span> encoding=<span class="hljs-string">&quot;utf-8&quot;</span><span class="hljs-meta">?&gt;</span></span>
+<span class="hljs-tag">&lt;<span class="hljs-name">LinearLayout</span> <span class="hljs-attr">xmlns:android</span>=<span class="hljs-string">&quot;http://schemas.android.com/apk/res/android&quot;</span>
+    <span class="hljs-attr">xmlns:app</span>=<span class="hljs-string">&quot;http://schemas.android.com/apk/res-auto&quot;</span>
+    <span class="hljs-attr">xmlns:tools</span>=<span class="hljs-string">&quot;http://schemas.android.com/tools&quot;</span>
+    <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">&quot;match_parent&quot;</span>
+    <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">&quot;match_parent&quot;</span>
+    <span class="hljs-attr">android:orientation</span>=<span class="hljs-string">&quot;vertical&quot;</span>
+    <span class="hljs-attr">tools:context</span>=<span class="hljs-string">&quot;.SPSaveActivity&quot;</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">EditText</span>
+        <span class="hljs-attr">android:id</span>=<span class="hljs-string">&quot;@+id/et_write&quot;</span>
+        <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">&quot;wrap_content&quot;</span>
+        <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">&quot;wrap_content&quot;</span> /&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">Button</span>
+        <span class="hljs-attr">android:id</span>=<span class="hljs-string">&quot;@+id/btn_write&quot;</span>
+        <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">&quot;wrap_content&quot;</span>
+        <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">&quot;wrap_content&quot;</span>
+        <span class="hljs-attr">android:text</span>=<span class="hljs-string">&quot;&#x5199;&#x5165;&#x6570;&#x636E;&quot;</span> /&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">EditText</span>
+        <span class="hljs-attr">android:id</span>=<span class="hljs-string">&quot;@+id/et_read&quot;</span>
+        <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">&quot;wrap_content&quot;</span>
+        <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">&quot;wrap_content&quot;</span> /&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">Button</span>
+        <span class="hljs-attr">android:id</span>=<span class="hljs-string">&quot;@+id/btn_read&quot;</span>
+        <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">&quot;wrap_content&quot;</span>
+        <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">&quot;wrap_content&quot;</span>
+        <span class="hljs-attr">android:text</span>=<span class="hljs-string">&quot;&#x8BFB;&#x53D6;&#x6570;&#x636E;&quot;</span> /&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">LinearLayout</span>&gt;</span>
+</code></pre>
 <h2 id="&#x624B;&#x52BF;">&#x624B;&#x52BF;</h2>
 <p>Android&#x5F00;&#x53D1;&#x4E2D;&#xFF0C;&#x51E0;&#x4E4E;&#x6240;&#x6709;&#x7684;&#x4E8B;&#x4EF6;&#x90FD;&#x4F1A;&#x548C;&#x7528;&#x6237;&#x8FDB;&#x884C;&#x4EA4;&#x4E92;&#xFF0C;&#x800C;&#x6700;&#x591A;&#x7684;&#x4EA4;&#x4E92;&#x5F62;&#x5F0F;&#x5C31;&#x662F;&#x624B;&#x52BF;&#x3002;&#x624B;&#x52BF;&#x5927;&#x6982;&#x5206;&#x4E3A;&#x4E24;&#x4E2A;&#x5927;&#x7C7B;&#x522B;&#xFF0C;&#x4E00;&#x7C7B;&#x662F;&#x5DE6;&#x6ED1;&#x53F3;&#x6ED1;&#xFF0C;Google&#x63D0;&#x4F9B;&#x4E86;&#x624B;&#x52BF;&#x68C0;&#x6D4B;&#x5E76;&#x63D0;&#x4F9B;&#x4E86;&#x76F8;&#x5E94;&#x7684;&#x76D1;&#x542C;&#x5668;&#x3002;&#x53E6;&#x4E00;&#x7C7B;&#x5C31;&#x662F;&#x753B;&#x4E2A;&#x5706;&#x5708;&#x3001;&#x6B63;&#x65B9;&#x5F62;&#x7B49;&#x7279;&#x6B8A;&#x624B;&#x52BF;&#xFF0C;&#x8FD9;&#x79CD;&#x624B;&#x52BF;&#x9700;&#x8981;&#x5F00;&#x53D1;&#x8005;&#x81EA;&#x5DF1;&#x6DFB;&#x52A0;&#x624B;&#x52BF;&#x8BC6;&#x522B;&#xFF0C;&#x5E76;&#x63D0;&#x4F9B;&#x4E86;&#x76F8;&#x5173;&#x7684;API&#x8BC6;&#x522B;&#x7528;&#x6237;&#x624B;&#x52BF;&#x3002;</p>
 <h3 id="&#x624B;&#x52BF;&#x68C0;&#x6D4B;">&#x624B;&#x52BF;&#x68C0;&#x6D4B;</h3>
@@ -502,7 +591,7 @@ static GestureLibrary fromRawResource(Context context, int resourceId)&#xFF1A;&#
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"其他","level":"1.6.5","depth":2,"next":{"title":"网络应用","level":"1.7","depth":1,"path":"page/1018.md","ref":"page/1018.md","articles":[]},"previous":{"title":"数据库","level":"1.6.4","depth":2,"path":"page/1017.md","ref":"page/1017.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","-sharing","theme-simple@git+https://github.com/plugins-zander/gitbook-plugin-theme-simple.git","search-pro@git+https://github.com/plugins-zander/gitbook-plugin-search-pro.git","katex@git+https://github.com/plugins-zander/gitbook-plugin-katex.git","splitter@git+https://github.com/plugins-zander/gitbook-plugin-splitter.git","mygitalk@git+https://github.com/plugins-zander/gitbook-plugin-mygitalk.git","edit-link@git+https://github.com/plugins-zander/gitbook-plugin-edit-link.git","sitemap-general@git+https://github.com/plugins-zander/gitbook-plugin-sitemap-general.git","gtag@git+https://github.com/plugins-zander/gitbook-plugin-gtag.git","chapter-fold@git+https://github.com/plugins-zander/gitbook-plugin-chapter-fold.git","copy-code-button@git+https://github.com/plugins-zander/gitbook-plugin-copy-code-button.git","page-toc@git+https://github.com/plugins-zander/gitbook-plugin-page-toc.git"],"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"},"pluginsConfig":{"chapter-fold":{},"splitter":{},"search-pro":{},"page-toc":{"position":"before-first","selector":".markdown-section h1, .markdown-section h2, .markdown-section h3, .markdown-section h4","showByDefault":true},"sitemap-general":{"prefix":"https://zlogs.net/learn-android/"},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"gtag":{"token":"UA-149127400-1"},"highlight":{},"theme-simple":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"copy-code-button":{},"mygitalk":{"flipMoveOptions":{},"clientID":"364365ceb2659b383d73","number":-1,"perPage":10,"proxy":"https://cors-anywhere.herokuapp.com/https://github.com/login/oauth/access_token","admin":["zanderzhao"],"createIssueManually":false,"distractionFreeMode":false,"repo":"talk","owner":"zanderzhao","enableHotKey":true,"clientSecret":"447ef6648e9dfffe2e2a65c34c8ead1dd4b7af54","pagerDirection":"last","labels":["Gitalk"]},"edit-link":{"label":"EDIT","base":"https://github.com/ZanderZhao/learn-android/edit/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Zander Zhao","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"learn-android","language":"zh-hans","gitbook":"3.2.3","description":"learn-android - Zander's Learn Book"},"file":{"path":"page/1020.md","mtime":"2020-06-13T17:43:32.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-06-13T17:49:20.330Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"其他","level":"1.6.5","depth":2,"next":{"title":"网络应用","level":"1.7","depth":1,"path":"page/1018.md","ref":"page/1018.md","articles":[]},"previous":{"title":"数据库","level":"1.6.4","depth":2,"path":"page/1017.md","ref":"page/1017.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","-sharing","theme-simple@git+https://github.com/plugins-zander/gitbook-plugin-theme-simple.git","search-pro@git+https://github.com/plugins-zander/gitbook-plugin-search-pro.git","katex@git+https://github.com/plugins-zander/gitbook-plugin-katex.git","splitter@git+https://github.com/plugins-zander/gitbook-plugin-splitter.git","mygitalk@git+https://github.com/plugins-zander/gitbook-plugin-mygitalk.git","edit-link@git+https://github.com/plugins-zander/gitbook-plugin-edit-link.git","sitemap-general@git+https://github.com/plugins-zander/gitbook-plugin-sitemap-general.git","gtag@git+https://github.com/plugins-zander/gitbook-plugin-gtag.git","chapter-fold@git+https://github.com/plugins-zander/gitbook-plugin-chapter-fold.git","copy-code-button@git+https://github.com/plugins-zander/gitbook-plugin-copy-code-button.git","page-toc@git+https://github.com/plugins-zander/gitbook-plugin-page-toc.git"],"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"},"pluginsConfig":{"chapter-fold":{},"splitter":{},"search-pro":{},"page-toc":{"position":"before-first","selector":".markdown-section h1, .markdown-section h2, .markdown-section h3, .markdown-section h4","showByDefault":true},"sitemap-general":{"prefix":"https://zlogs.net/learn-android/"},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"gtag":{"token":"UA-149127400-1"},"highlight":{},"theme-simple":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"copy-code-button":{},"mygitalk":{"flipMoveOptions":{},"clientID":"364365ceb2659b383d73","number":-1,"perPage":10,"proxy":"https://cors-anywhere.herokuapp.com/https://github.com/login/oauth/access_token","admin":["zanderzhao"],"createIssueManually":false,"distractionFreeMode":false,"repo":"talk","owner":"zanderzhao","enableHotKey":true,"clientSecret":"447ef6648e9dfffe2e2a65c34c8ead1dd4b7af54","pagerDirection":"last","labels":["Gitalk"]},"edit-link":{"label":"EDIT","base":"https://github.com/ZanderZhao/learn-android/edit/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Zander Zhao","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"learn-android","language":"zh-hans","gitbook":"3.2.3","description":"learn-android - Zander's Learn Book"},"file":{"path":"page/1020.md","mtime":"2020-06-14T13:49:48.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-06-14T13:52:38.125Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

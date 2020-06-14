@@ -541,11 +541,96 @@ rotate&#xFF1A;&#x8BBE;&#x7F6E;&#x56FE;&#x7247;&#x8FDB;&#x884C;&#x65CB;&#x8F6C;&#
 Pull&#x89E3;&#x6790;&#x91C7;&#x7528;&#x4E8B;&#x4EF6;&#x5904;&#x7406;&#x7684;&#x65B9;&#x5F0F;&#x6765;&#x89E3;&#x6790;XML&#x6587;&#x6863;&#xFF0C;&#x5F53;Pull&#x89E3;&#x6790;&#x5668;&#x5F00;&#x59CB;&#x89E3;&#x6790;&#x4E4B;&#x540E;&#xFF0C;&#x901A;&#x8FC7;&#x8C03;&#x7528;Pull&#x89E3;&#x6790;&#x5668;&#x7684;next()&#x65B9;&#x6CD5;&#x83B7;&#x53D6;&#x4E0B;&#x4E00;&#x4E2A;&#x89E3;&#x6790;&#x4E8B;&#x4EF6;&#xFF08;&#x5F00;&#x59CB;&#x6587;&#x6863;&#x3001;&#x7ED3;&#x675F;&#x6587;&#x6863;&#x3001;&#x5F00;&#x59CB;&#x6807;&#x7B7E;&#x3001;&#x7ED3;&#x675F;&#x6807;&#x7B7E;&#x7B49;&#xFF09;&#xFF0C;&#x5F53;&#x5904;&#x4E8E;&#x67D0;&#x4E2A;&#x5143;&#x7D20;&#x5904;&#x65F6;&#xFF0C;&#x53EF;&#x8C03;&#x7528;XmlPullParser&#x7684;getAttributeValue()&#x65B9;&#x6CD5;&#x6765;&#x83B7;&#x53D6;&#x8BE5;&#x5143;&#x7D20;&#x7684;&#x5C5E;&#x6027;&#x503C;&#xFF0C;&#x4E5F;&#x53EF;&#x8C03;&#x7528;XmlPullParser&#x7684;nextText()&#x65B9;&#x6CD5;&#x6765;&#x83B7;&#x53D6;&#x6587;&#x672C;&#x8282;&#x70B9;&#x7684;&#x503C;&#x3002;</p>
 <p>&#x5982;&#x679C;&#x91C7;&#x7528;DOM&#x6216;&#x8005;SAX&#x65B9;&#x5F0F;&#x89E3;&#x6790;XML&#x8D44;&#x6E90;&#xFF0C;&#x5219;&#x9700;&#x8981;&#x8C03;&#x7528;openRawResource(int id)&#x65B9;&#x6CD5;&#x83B7;&#x53D6;XML&#x8D44;&#x6E90;&#x5BF9;&#x5E94;&#x7684;&#x8F93;&#x5165;&#x6D41;&#xFF0C;&#x901A;&#x8FC7;&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#x53EF;&#x4EE5;&#x81EA;&#x884C;&#x89E3;&#x6790;&#x5668;&#x89E3;&#x6790;&#x8BE5;XML&#x8D44;&#x6E90;&#x3002;</p>
 <h3 id="&#x4F7F;&#x7528;&#x539F;&#x59CB;xml&#x6587;&#x4EF6;">&#x4F7F;&#x7528;&#x539F;&#x59CB;XML&#x6587;&#x4EF6;</h3>
-<p>&#x4E0B;&#x9762;&#x901A;&#x8FC7;&#x4E00;&#x4E2A;&#x793A;&#x4F8B;&#x4ECB;&#x7ECD;&#x4F7F;&#x7528;Pull&#x89E3;&#x6790;&#x5668;&#x6765;&#x89E3;&#x6790;XML&#x6587;&#x4EF6;&#x3002;&#x5728;res&#x76EE;&#x5F55;&#x4E0B;&#x65B0;&#x5EFA;xml&#x76EE;&#x5F55;&#xFF0C;&#x5E76;&#x5728;xml&#x4E2D;&#x65B0;&#x5EFA;&#x6587;&#x4EF6;person_list.xml&#x6587;&#x4EF6;&#xFF0C;&#x5982;&#x4F8B;&#x6240;&#x793A;&#x3002;</p>
-<p><img src="https://img1.zlogs.net/20/20200613180517.png" alt="image"></p>
+<p>&#x4E0B;&#x9762;&#x901A;&#x8FC7;&#x4E00;&#x4E2A;&#x793A;&#x4F8B;&#x4ECB;&#x7ECD;&#x4F7F;&#x7528;Pull&#x89E3;&#x6790;&#x5668;&#x6765;&#x89E3;&#x6790;XML&#x6587;&#x4EF6;&#x3002;&#x5728;res&#x76EE;&#x5F55;&#x4E0B;&#x65B0;&#x5EFA;xml&#x76EE;&#x5F55;&#xFF0C;&#x5E76;&#x5728;xml&#x4E2D;&#x65B0;&#x5EFA;&#x6587;&#x4EF6;person_list.xml&#x6587;&#x4EF6;</p>
+<p>main/res/xml/person_list.xml</p>
+<pre><code class="lang-xml"><span class="php"><span class="hljs-meta">&lt;?</span>xml version=<span class="hljs-string">&quot;1.0&quot;</span> encoding=<span class="hljs-string">&quot;utf-8&quot;</span><span class="hljs-meta">?&gt;</span></span>
+<span class="hljs-tag">&lt;<span class="hljs-name">Person</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">person</span>
+        <span class="hljs-attr">age</span>=<span class="hljs-string">&quot;23&quot;</span>
+        <span class="hljs-attr">sex</span>=<span class="hljs-string">&quot;&#x7537;&quot;</span>&gt;</span>&#x674E;&#x96F7;
+    <span class="hljs-tag">&lt;/<span class="hljs-name">person</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">person</span>
+        <span class="hljs-attr">age</span>=<span class="hljs-string">&quot;23&quot;</span>
+        <span class="hljs-attr">sex</span>=<span class="hljs-string">&quot;&#x5973;&quot;</span>&gt;</span>&#x97E9;&#x6885;&#x6885;
+    <span class="hljs-tag">&lt;/<span class="hljs-name">person</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">person</span>
+        <span class="hljs-attr">age</span>=<span class="hljs-string">&quot;18&quot;</span>
+        <span class="hljs-attr">sex</span>=<span class="hljs-string">&quot;&#x5973;&quot;</span>&gt;</span>&#x96F7;&#x6CE2;
+    <span class="hljs-tag">&lt;/<span class="hljs-name">person</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">Person</span>&gt;</span>
+</code></pre>
 <p>&#x65B0;&#x5EFA;&#x597D;XML&#x6587;&#x4EF6;&#x540E;&#x5C31;&#x53EF;&#x4EE5;&#x6765;&#x89E3;&#x6790;&#xFF0C;&#x5728;java&#x4EE3;&#x7801;&#x4E2D;&#x4F7F;&#x7528;&#x5982;&#x4E0B;&#x3002;</p>
-<p><img src="https://img1.zlogs.net/20/20200613180537.png" alt="image"></p>
-<p><img src="https://img1.zlogs.net/20/20200613180551.png" alt="image"></p>
+<p>main/java/com/example/myapplication6/MainActivity.java</p>
+<pre><code class="lang-java"><span class="hljs-keyword">package</span> com.example.myapplication6;
+
+<span class="hljs-keyword">import</span> androidx.appcompat.app.AppCompatActivity;
+
+<span class="hljs-keyword">import</span> android.content.res.XmlResourceParser;
+<span class="hljs-keyword">import</span> android.os.Bundle;
+<span class="hljs-keyword">import</span> android.view.View;
+<span class="hljs-keyword">import</span> android.widget.TextView;
+
+<span class="hljs-keyword">import</span> org.xmlpull.v1.XmlPullParserException;
+
+<span class="hljs-keyword">import</span> java.io.IOException;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MainActivity</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">AppCompatActivity</span> </span>{
+    <span class="hljs-keyword">private</span> TextView startPull, showText;
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onCreate</span><span class="hljs-params">(Bundle savedInstanceState)</span> </span>{
+        <span class="hljs-keyword">super</span>.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        startPull = findViewById(R.id.start_pull);
+        showText = findViewById(R.id.show_text);
+        startPull.setOnClickListener(<span class="hljs-keyword">new</span> View.OnClickListener() {
+            <span class="hljs-meta">@Override</span>
+            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onClick</span><span class="hljs-params">(View v)</span> </span>{
+                <span class="hljs-comment">//&#x6839;&#x636E;xml&#x8D44;&#x6E90;&#x7684;id&#x83B7;&#x53D6;&#x89E3;&#x6790;&#x8BE5;&#x8D44;&#x6E90;&#x7684;&#x89E3;&#x6790;&#x5668;&#xFF0C;</span>
+                <span class="hljs-comment">//&#x5176;&#x4E2D;XmlResourceParser&#x662F;XmlPullParser&#x7684;&#x5B50;&#x7C7B;</span>
+                XmlResourceParser xrp = getResources().getXml(R.xml.person_list);
+                <span class="hljs-keyword">try</span> {
+                    StringBuilder sb = <span class="hljs-keyword">new</span> StringBuilder();
+                    <span class="hljs-comment">//&#x8FD8;&#x6CA1;&#x5230;&#x6587;&#x6863;&#x7684;&#x7ED3;&#x5C3E;</span>
+                    <span class="hljs-keyword">while</span> (xrp.getEventType() !=
+                            XmlResourceParser.END_DOCUMENT) {
+                        <span class="hljs-comment">//&#x5982;&#x679C;&#x9047;&#x5230;&#x5F00;&#x59CB;&#x6807;&#x7B7E;</span>
+                        <span class="hljs-keyword">if</span> (xrp.getEventType() ==
+                                XmlResourceParser.START_TAG) {
+                            <span class="hljs-comment">//&#x83B7;&#x53D6;&#x8BE5;&#x6807;&#x7B7E;&#x7684;&#x6807;&#x7B7E;&#x540D;</span>
+                            String tagName = xrp.getName();
+                            <span class="hljs-comment">//&#x5982;&#x679C;&#x9047;&#x5230;person&#x6807;&#x7B7E;</span>
+                            <span class="hljs-keyword">if</span> (tagName.equals(<span class="hljs-string">&quot;person&quot;</span>)) {
+                                <span class="hljs-comment">//&#x6839;&#x636E;&#x5C5E;&#x6027;&#x540D;&#x83B7;&#x53D6;&#x5C5E;&#x6027;&#x503C;</span>
+                                String perName =
+                                        xrp.getAttributeValue(<span class="hljs-keyword">null</span>, <span class="hljs-string">&quot;age&quot;</span>);
+                                sb.append(<span class="hljs-string">&quot;&#x5E74;&#x9F84;&#xFF1A;&quot;</span>);
+                                sb.append(perName);
+                                <span class="hljs-comment">//&#x6839;&#x636E;&#x5C5E;&#x6027;&#x7D22;&#x5F15;&#x83B7;&#x53D6;&#x5C5E;&#x6027;&#x503C;</span>
+                                String perAge = xrp.getAttributeValue(<span class="hljs-number">1</span>);
+                                sb.append(<span class="hljs-string">&quot;&#xFF0C;&#x6027;&#x522B;&#xFF1A;&quot;</span>);
+                                sb.append(perAge);
+                                sb.append(<span class="hljs-string">&quot;&#xFF0C;&#x59D3;&#x540D;&#xFF1A;&quot;</span>);
+                                <span class="hljs-comment">//&#x83B7;&#x53D6;&#x6587;&#x672C;&#x8282;&#x70B9;&#x7684;&#x503C;</span>
+                                sb.append(xrp.nextText());
+                            }
+                            sb.append(<span class="hljs-string">&quot;\n&quot;</span>);
+                        }
+                        <span class="hljs-comment">//&#x83B7;&#x53D6;&#x89E3;&#x6790;&#x5668;&#x7684;&#x4E0B;&#x4E00;&#x4E2A;&#x4E8B;&#x4EF6;</span>
+                        xrp.next();
+                    }
+                    showText.setText(sb.toString());
+                } <span class="hljs-keyword">catch</span> (XmlPullParserException e) {
+                    e.printStackTrace();
+                } <span class="hljs-keyword">catch</span> (IOException e) {
+                    e.printStackTrace();
+
+                }
+            }
+        });
+    }
+}
+</code></pre>
 <p>&#x4E0A;&#x9762;&#x7A0B;&#x5E8F;&#x4E2D;&#x7B2C;19~45&#x884C;&#x4EE3;&#x7801;&#x7528;&#x4E8E;&#x4E0D;&#x65AD;&#x83B7;&#x53D6;Pull&#x89E3;&#x6790;&#x7684;&#x89E3;&#x6790;&#x4E8B;&#x4EF6;&#xFF0C;&#x7A0B;&#x5E8F;&#x4E2D;&#x901A;&#x8FC7;while&#x5FAA;&#x73AF;&#x5C06;&#x6574;&#x4E2A;XML&#x6587;&#x6863;&#x89E3;&#x6790;&#x51FA;&#x6765;&#x3002;activity_main.xml&#x5E03;&#x5C40;&#x6587;&#x4EF6;&#x4E2D;&#x5305;&#x542B;&#x4E24;&#x4E2A;TextView&#x63A7;&#x4EF6;&#xFF0C;&#x5176;&#x4E2D;startPull&#x8BBE;&#x7F6E;&#x4E86;&#x5355;&#x51FB;&#x4E8B;&#x4EF6;&#x7528;&#x4E8E;&#x5F00;&#x59CB;&#x89E3;&#x6790;&#xFF0C;showText&#x5219;&#x7528;&#x4E8E;&#x663E;&#x793A;&#x89E3;&#x6790;&#x51FA;&#x6765;&#x7684;&#x5185;&#x5BB9;&#x3002;</p>
 <h2 id="&#x6837;&#x5F0F;&#x548C;&#x4E3B;&#x9898;&#x8D44;&#x6E90;">&#x6837;&#x5F0F;&#x548C;&#x4E3B;&#x9898;&#x8D44;&#x6E90;</h2>
 <p>&#x6837;&#x5F0F;&#x548C;&#x4E3B;&#x9898;&#x8D44;&#x6E90;&#x90FD;&#x7528;&#x4E8E;&#x5BF9;Android&#x5E94;&#x7528;&#x8FDB;&#x884C;&#x201C;&#x7F8E;&#x5316;&#x201D;&#xFF0C;&#x53EA;&#x8981;&#x5145;&#x5206;&#x5229;&#x7528;Android&#x5E94;&#x7528;&#x4E2D;&#x7684;&#x6837;&#x5F0F;&#x548C;&#x4E3B;&#x9898;&#x8D44;&#x6E90;&#xFF0C;&#x5927;&#x5BB6;&#x5C31;&#x53EF;&#x4EE5;&#x5F00;&#x53D1;&#x51FA;&#x7F8E;&#x8F6E;&#x7F8E;&#x5942;&#x7684;Android&#x5E94;&#x7528;&#x3002;</p>
@@ -612,7 +697,7 @@ Pull&#x89E3;&#x6790;&#x91C7;&#x7528;&#x4E8B;&#x4EF6;&#x5904;&#x7406;&#x7684;&#x6
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"应用资源","level":"1.6.1","depth":2,"next":{"title":"图形图像","level":"1.6.2","depth":2,"path":"page/1013.md","ref":"page/1013.md","articles":[]},"previous":{"title":"资源处理","level":"1.6","depth":1,"path":"page/1014.md","ref":"page/1014.md","articles":[{"title":"应用资源","level":"1.6.1","depth":2,"path":"page/1015.md","ref":"page/1015.md","articles":[]},{"title":"图形图像","level":"1.6.2","depth":2,"path":"page/1013.md","ref":"page/1013.md","articles":[]},{"title":"文件","level":"1.6.3","depth":2,"path":"page/1016.md","ref":"page/1016.md","articles":[]},{"title":"数据库","level":"1.6.4","depth":2,"path":"page/1017.md","ref":"page/1017.md","articles":[]},{"title":"其他","level":"1.6.5","depth":2,"path":"page/1020.md","ref":"page/1020.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","-sharing","theme-simple@git+https://github.com/plugins-zander/gitbook-plugin-theme-simple.git","search-pro@git+https://github.com/plugins-zander/gitbook-plugin-search-pro.git","katex@git+https://github.com/plugins-zander/gitbook-plugin-katex.git","splitter@git+https://github.com/plugins-zander/gitbook-plugin-splitter.git","mygitalk@git+https://github.com/plugins-zander/gitbook-plugin-mygitalk.git","edit-link@git+https://github.com/plugins-zander/gitbook-plugin-edit-link.git","sitemap-general@git+https://github.com/plugins-zander/gitbook-plugin-sitemap-general.git","gtag@git+https://github.com/plugins-zander/gitbook-plugin-gtag.git","chapter-fold@git+https://github.com/plugins-zander/gitbook-plugin-chapter-fold.git","copy-code-button@git+https://github.com/plugins-zander/gitbook-plugin-copy-code-button.git","page-toc@git+https://github.com/plugins-zander/gitbook-plugin-page-toc.git"],"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"},"pluginsConfig":{"chapter-fold":{},"splitter":{},"search-pro":{},"page-toc":{"position":"before-first","selector":".markdown-section h1, .markdown-section h2, .markdown-section h3, .markdown-section h4","showByDefault":true},"sitemap-general":{"prefix":"https://zlogs.net/learn-android/"},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"gtag":{"token":"UA-149127400-1"},"highlight":{},"theme-simple":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"copy-code-button":{},"mygitalk":{"flipMoveOptions":{},"clientID":"364365ceb2659b383d73","number":-1,"perPage":10,"proxy":"https://cors-anywhere.herokuapp.com/https://github.com/login/oauth/access_token","admin":["zanderzhao"],"createIssueManually":false,"distractionFreeMode":false,"repo":"talk","owner":"zanderzhao","enableHotKey":true,"clientSecret":"447ef6648e9dfffe2e2a65c34c8ead1dd4b7af54","pagerDirection":"last","labels":["Gitalk"]},"edit-link":{"label":"EDIT","base":"https://github.com/ZanderZhao/learn-android/edit/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Zander Zhao","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"learn-android","language":"zh-hans","gitbook":"3.2.3","description":"learn-android - Zander's Learn Book"},"file":{"path":"page/1015.md","mtime":"2020-06-13T17:43:32.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-06-13T17:49:20.330Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"应用资源","level":"1.6.1","depth":2,"next":{"title":"图形图像","level":"1.6.2","depth":2,"path":"page/1013.md","ref":"page/1013.md","articles":[]},"previous":{"title":"资源处理","level":"1.6","depth":1,"path":"page/1014.md","ref":"page/1014.md","articles":[{"title":"应用资源","level":"1.6.1","depth":2,"path":"page/1015.md","ref":"page/1015.md","articles":[]},{"title":"图形图像","level":"1.6.2","depth":2,"path":"page/1013.md","ref":"page/1013.md","articles":[]},{"title":"文件","level":"1.6.3","depth":2,"path":"page/1016.md","ref":"page/1016.md","articles":[]},{"title":"数据库","level":"1.6.4","depth":2,"path":"page/1017.md","ref":"page/1017.md","articles":[]},{"title":"其他","level":"1.6.5","depth":2,"path":"page/1020.md","ref":"page/1020.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","-sharing","theme-simple@git+https://github.com/plugins-zander/gitbook-plugin-theme-simple.git","search-pro@git+https://github.com/plugins-zander/gitbook-plugin-search-pro.git","katex@git+https://github.com/plugins-zander/gitbook-plugin-katex.git","splitter@git+https://github.com/plugins-zander/gitbook-plugin-splitter.git","mygitalk@git+https://github.com/plugins-zander/gitbook-plugin-mygitalk.git","edit-link@git+https://github.com/plugins-zander/gitbook-plugin-edit-link.git","sitemap-general@git+https://github.com/plugins-zander/gitbook-plugin-sitemap-general.git","gtag@git+https://github.com/plugins-zander/gitbook-plugin-gtag.git","chapter-fold@git+https://github.com/plugins-zander/gitbook-plugin-chapter-fold.git","copy-code-button@git+https://github.com/plugins-zander/gitbook-plugin-copy-code-button.git","page-toc@git+https://github.com/plugins-zander/gitbook-plugin-page-toc.git"],"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"},"pluginsConfig":{"chapter-fold":{},"splitter":{},"search-pro":{},"page-toc":{"position":"before-first","selector":".markdown-section h1, .markdown-section h2, .markdown-section h3, .markdown-section h4","showByDefault":true},"sitemap-general":{"prefix":"https://zlogs.net/learn-android/"},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"gtag":{"token":"UA-149127400-1"},"highlight":{},"theme-simple":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"copy-code-button":{},"mygitalk":{"flipMoveOptions":{},"clientID":"364365ceb2659b383d73","number":-1,"perPage":10,"proxy":"https://cors-anywhere.herokuapp.com/https://github.com/login/oauth/access_token","admin":["zanderzhao"],"createIssueManually":false,"distractionFreeMode":false,"repo":"talk","owner":"zanderzhao","enableHotKey":true,"clientSecret":"447ef6648e9dfffe2e2a65c34c8ead1dd4b7af54","pagerDirection":"last","labels":["Gitalk"]},"edit-link":{"label":"EDIT","base":"https://github.com/ZanderZhao/learn-android/edit/master/"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Zander Zhao","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"learn-android","language":"zh-hans","gitbook":"3.2.3","description":"learn-android - Zander's Learn Book"},"file":{"path":"page/1015.md","mtime":"2020-06-14T13:49:48.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-06-14T13:52:38.125Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
